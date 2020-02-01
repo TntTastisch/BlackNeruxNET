@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OneHit">
+    <output-path>$PROJECT_DIR$/out/artifacts/OneHit</output-path>
+    <root id="archive" name="OneHit.jar">
+      <element id="module-output" name="OneHit" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

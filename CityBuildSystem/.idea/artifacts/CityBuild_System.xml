@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CityBuild-System">
+    <output-path>$PROJECT_DIR$/../../../server/Spigot/1.8.8/plugins</output-path>
+    <root id="archive" name="CityBuild-System.jar">
+      <element id="module-output" name="CityBuildSystem" />
+    </root>
+  </artifact>
+</component>

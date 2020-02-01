@@ -1,0 +1,31 @@
+#>> Bei den Events kannst du Oster, Halloween, Weihnachten und Silvester eingeben. Bei keinem Event einfach -null- eingeben!
+Events:
+  type: null
+MySQL:
+  Host: localhost
+  Port: 3306
+  Database: lobby
+  User: root
+  Password: ' '
+Koepfe:
+  1slot:
+    player: "TntTastisch"
+    prefix: "§4§lOwner ▏ §4§lTntTastisch"
+  2slot:
+    player: "Einfaxh"
+    prefix: "§4§lOwner ▏ §4§lEinfaxh"
+  3slot:
+    player: "Verweigerung"
+    prefix: "§c§lAdmin ▏ §c§lVerweigerung"
+  4slot:
+    player: "FPS_ZOCKER_"
+    prefix: "§c§lAdmin ▏ §c§lFPS_ZOCKER_"
+  5slot:
+    player: "MiniNoopHD"
+    prefix: "§9§lBuilder ▏ §9§lMiniNoopHD"
+  6slot:
+    player: "MHF_Question"
+    prefix: "§cTeam Mitglied..."
+  7slot:
+    player: "MHF_Question"
+    prefix: "§cTeam Mitglied..."

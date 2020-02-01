@@ -1,0 +1,8 @@
+name: OneHit
+version: 1.0-SNAPSHOT
+author: TeeJan
+main: de.TeeJan.BlackNerux.OneHit
+commands:
+  setspawn:
+  stats:
+  coins:

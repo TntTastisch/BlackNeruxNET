@@ -1,0 +1,7 @@
+name: ClanSystem
+version: 1.0-SNAPSHOT
+author: TntTastisch
+main: de.TntTastisch.BlackNerux.ClanSystem
+commands:
+  clan:
+  cc:

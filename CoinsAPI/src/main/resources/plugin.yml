@@ -1,0 +1,6 @@
+name: CoinsAPI
+version: 1.0-SANPSHOT
+author: TntTastisch
+main: de.TntTastisch.BlackNerux.Main
+commands:
+  coins:

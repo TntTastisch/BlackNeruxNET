@@ -1,0 +1,4 @@
+name: NickSystem_Lobby
+author: bote100
+version: 1.2
+main: net.bote.nicklobby.main.Main

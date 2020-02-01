@@ -1,0 +1,11 @@
+name: CityBuildSystem
+version: 1.0-SNAPSHOT
+author: TntTastisch
+main: de.TntTastisch.BlackNerux.CityBuildSystem
+commands:
+  gamemode:
+    aliases:
+      - gm
+  vanish:
+    aliases:
+      - v
