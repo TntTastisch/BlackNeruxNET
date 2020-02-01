@@ -7,6 +7,7 @@ import de.TeeJan.BlackNerux.utils.PlayerInvetory;
 import de.TeeJan.BlackNerux.utils.Scoreboard;
 import de.TeeJan.BlackNerux.utils.SpawnConfig;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,6 +26,9 @@ public class JoinQuitListener implements Listener {
         Bukkit.broadcastMessage(Data.prefix + Data.getPlayerPrefix(player) + " §7hat das Spiel §abetreten§7.");
         player.setHealth(2);
         player.setHealthScale(2);
+        player.setLevel(0);
+        player.setExp(0);
+        player.setGameMode(GameMode.SURVIVAL);
         PlayerInvetory.setItems(player);
         SpawnConfig.teleportPlayerToLocation(player, OneHit.filecfg, "Spawn");
 
