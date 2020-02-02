@@ -138,6 +138,21 @@ public class ScoreboardManager {
             s11.setScore(1);
             final PacketPlayOutScoreboardScore ps11 = new PacketPlayOutScoreboardScore(s11);
             sendPacket(player, (Packet<?>) ps11);
+        } else if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Minenarbeiter")){
+            final ScoreboardScore s11 = new ScoreboardScore(scoreboard, obj, "§7➟ §eMinenarbeiter");
+            s11.setScore(1);
+            final PacketPlayOutScoreboardScore ps11 = new PacketPlayOutScoreboardScore(s11);
+            sendPacket(player, (Packet<?>) ps11);
+        } else if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Metzger")){
+            final ScoreboardScore s11 = new ScoreboardScore(scoreboard, obj, "§7➟ §4Metzger");
+            s11.setScore(1);
+            final PacketPlayOutScoreboardScore ps11 = new PacketPlayOutScoreboardScore(s11);
+            sendPacket(player, (Packet<?>) ps11);
+        } else if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Holzfäller")){
+            final ScoreboardScore s11 = new ScoreboardScore(scoreboard, obj, "§7➟ §2Holzfäller");
+            s11.setScore(1);
+            final PacketPlayOutScoreboardScore ps11 = new PacketPlayOutScoreboardScore(s11);
+            sendPacket(player, (Packet<?>) ps11);
         }
 
         final ScoreboardScore s12 = new ScoreboardScore(scoreboard, obj, "§d§l§a§5§4§3§2§f§d§f§5§6§7");

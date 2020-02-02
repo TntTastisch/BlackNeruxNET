@@ -6,6 +6,7 @@ import de.TntTastisch.BlackNerux.listeners.*;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
 import de.TntTastisch.BlackNerux.utils.ScoreboardManager;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -16,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
@@ -30,6 +32,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
 
     public static CityBuildSystem plugin;
     public static MySQL mySQL;
+    public static Economy economy = null;
     public FileConfiguration configuration = this.getConfig();
 
     @Override
@@ -37,6 +40,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         plugin = this;
         createFiles();
         connectToSQL();
+        setupEconomy();
         PluginManager manager = Bukkit.getPluginManager();
 
         manager.registerEvents(new ColouredSignListener(), this);
@@ -44,6 +48,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         manager.registerEvents(new ColouredAnvilListener(), this);
         manager.registerEvents(new DeathListener(), this);
         manager.registerEvents(new SocialSpyListener(), this);
+        manager.registerEvents(new JobsListener(), this);
 
         ScoreboardManager.updateScoreboard();
 
@@ -53,6 +58,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("fly").setExecutor(new Fly_CMD());
         // Features
         this.getCommand("feed").setExecutor(new Feed_CMD());
+        this.getCommand("jobs").setExecutor(new Job_CMD());
         this.getCommand("heal").setExecutor(new Heal_CMD());
         this.getCommand("enderchest").setExecutor(new Enderchest_CMD());
         // Location
@@ -170,6 +176,17 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
 
 
     }
+
+    private boolean setupEconomy()
+    {
+        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
+        if (economyProvider != null) {
+            economy = economyProvider.getProvider();
+        }
+
+        return (economy != null);
+    }
+
 
     public void nonnenhausSchuh(){
         List<String> nonnenhausschuhlist = new ArrayList<>();

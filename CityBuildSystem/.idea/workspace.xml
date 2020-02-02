@@ -7,13 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15393ebf-6a0b-4e9b-8615-758532e44b62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Enderchest_CMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Job_CMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listeners/JobsListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/utils/JobNPC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/CityBuildSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/CityBuildSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Home_CMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Home_CMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/utils/ScoreboardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/utils/ScoreboardManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/CityBuildSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/CityBuildSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/commands/Home_CMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/commands/Home_CMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/commands/Enderchest_CMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/commands/Enderchest_CMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,15 +53,16 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OnlineTimeAPI-Spigot.jar!/" />
+    <property name="ToolWindowStructure.ShowToolbar" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Vault.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="de.TntTastisch.BlackNerux.commands" />
       <recent name="de.TntTastisch.BlackNerux.listeners" />
+      <recent name="de.TntTastisch.BlackNerux.commands" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -77,18 +82,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1580675962315">
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1580676566328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580675962315" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580666724440">
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580676566328" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1580679974447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580666724440" />
-    <state x="440" y="95" key="SettingsEditor" timestamp="1580664935037">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580679974447" />
+    <state x="440" y="95" key="SettingsEditor" timestamp="1580679976219">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580664935037" />
+    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580679976219" />
     <state x="342" y="128" key="new project wizard" timestamp="1580666737798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -35,6 +35,9 @@ commands:
   msg:
   msgtoggle:
   r:
+  jobs:
+    aliases:
+      - job
   enderchest:
     aliases:
       - ec
