@@ -126,4 +126,99 @@ public class MySQL {
         return i;
     }
 
+    public static void setFly(String UUID, int State){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET FlyEnabled= '" + State + "' WHERE UUID= '" + UUID + "';");
+        }
+
+    }
+
+    public static Integer getFly(final String uuid) {
+        Integer i = 0;
+        if (playerExists(uuid)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + uuid + "'");
+                if (rs.next()) {
+                    rs.getInt("FlyEnabled");
+                }
+                i = rs.getInt("FlyEnabled");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setMsgEnable(String UUID, int State){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET MsgEnable= '" + State + "' WHERE UUID= '" + UUID + "';");
+        }
+
+    }
+
+    public static Integer getMsgEnable(final String uuid) {
+        Integer i = 0;
+        if (playerExists(uuid)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + uuid + "'");
+                if (rs.next()) {
+                    rs.getInt("MsgEnable");
+                }
+                i = rs.getInt("MsgEnable");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setSocialSpy(String UUID, int State){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET SocialSpyEnable= '" + State + "' WHERE UUID= '" + UUID + "';");
+        }
+
+    }
+
+    public static Integer getSocialSpy(final String uuid) {
+        Integer i = 0;
+        if (playerExists(uuid)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + uuid + "'");
+                if (rs.next()) {
+                    rs.getInt("SocialSpyEnable");
+                }
+                i = rs.getInt("SocialSpyEnable");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setTpaToggle(String UUID, int State){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET TpaEnable= '" + State + "' WHERE UUID= '" + UUID + "';");
+        }
+
+    }
+
+    public static Integer getTpaToggle(final String uuid) {
+        Integer i = 0;
+        if (playerExists(uuid)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + uuid + "'");
+                if (rs.next()) {
+                    rs.getInt("TpaEnable");
+                }
+                i = rs.getInt("TpaEnable");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
 }

@@ -1,6 +1,9 @@
 package de.TntTastisch.BlackNerux.listeners;
 
+import de.TntTastisch.BlackNerux.commands.Home_CMD;
+import de.TntTastisch.BlackNerux.systems.Data;
 import de.TntTastisch.BlackNerux.systems.MySQL;
+import de.TntTastisch.BlackNerux.utils.LocationManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 public class JoinQuitListener implements Listener {
 
@@ -20,6 +24,34 @@ public class JoinQuitListener implements Listener {
         event.setJoinMessage(null);
 
         MySQL.createPlayer(player);
+        LocationManager.getSpawn(player);
+        Home_CMD.setConfigOnJoin(player);
+
+        if(player.hasPermission("citybuild.command.vanish")){
+            if(MySQL.getVanish(player.getUniqueId().toString()) == 0){
+                MySQL.setVanish(player.getUniqueId().toString(), 1);
+
+                player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 3600000, 360000));
+
+                for (Player all : Bukkit.getOnlinePlayers()) {
+                    if (!all.hasPermission("citybuild.command.vanish.bypass") || !all.hasPermission("citybuild.command.vanish")) {
+                        all.hidePlayer(player);
+                    }
+                }
+
+                player.sendMessage(Data.prefix + "§7Du wurdest automatisch in den §6Vanishmodus §7gesetzt.");
+            }
+        }
+
+        if(player.hasPermission("citybuild.command.fly")){
+            if(MySQL.getFly(player.getUniqueId().toString()) == 0){
+                MySQL.setFly(player.getUniqueId().toString(), 1);
+
+                player.setAllowFlight(true);
+
+                player.sendMessage(Data.prefix + "§7Du wurdest automatisch in den §6Flugmodus §7gesetzt.");
+            }
+        }
 
 
         if(MySQL.getVanish(player.getUniqueId().toString()) == 1){

@@ -1,16 +1,17 @@
 package de.TntTastisch.BlackNerux;
 
-import de.TntTastisch.BlackNerux.commands.GameMode_CMD;
-import de.TntTastisch.BlackNerux.commands.Vanish_CMD;
-import de.TntTastisch.BlackNerux.listeners.ColouredAnvilListener;
-import de.TntTastisch.BlackNerux.listeners.ColouredSignListener;
-import de.TntTastisch.BlackNerux.listeners.JoinQuitListener;
+import de.TntTastisch.BlackNerux.commands.*;
+import de.TntTastisch.BlackNerux.listeners.*;
 import de.TntTastisch.BlackNerux.systems.MySQL;
+import de.TntTastisch.BlackNerux.utils.LocationManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.io.IOException;
 
 public class CityBuildSystem extends JavaPlugin implements Listener {
 
@@ -28,9 +29,39 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         manager.registerEvents(new ColouredSignListener(), this);
         manager.registerEvents(new JoinQuitListener(), this);
         manager.registerEvents(new ColouredAnvilListener(), this);
+        manager.registerEvents(new DeathListener(), this);
+        manager.registerEvents(new SocialSpyListener(), this);
 
         this.getCommand("gamemode").setExecutor(new GameMode_CMD());
         this.getCommand("vanish").setExecutor(new Vanish_CMD());
+        this.getCommand("fly").setExecutor(new Fly_CMD());
+        this.getCommand("feed").setExecutor(new Feed_CMD());
+        this.getCommand("heal").setExecutor(new Heal_CMD());
+        this.getCommand("setspawn").setExecutor(new SetSpawn_CMD());
+        this.getCommand("spawn").setExecutor(new Spawn_CMD());
+        this.getCommand("teleport").setExecutor(new Teleport_CMD());
+        this.getCommand("tpall").setExecutor(new Tpall_CMD());
+        this.getCommand("tphere").setExecutor(new Tphere_CMD());
+        // Warp
+        this.getCommand("delwarp").setExecutor(new DelWarp_CMD());
+        this.getCommand("setwarp").setExecutor(new SetWarp_CMD());
+        this.getCommand("warp").setExecutor(new Warp_CMD());
+        // Home
+        this.getCommand("sethome").setExecutor(new SetHome_CMD());
+        this.getCommand("delhome").setExecutor(new DelHome_CMD());
+        this.getCommand("home").setExecutor(new Home_CMD());
+        // TPA
+        this.getCommand("tpa").setExecutor(new Tpa_CMD());
+        this.getCommand("tpatoggle").setExecutor(new TpaToggle_CMD());
+        this.getCommand("tpahere").setExecutor(new Tpahere_CMD());
+        this.getCommand("tpaall").setExecutor(new Tpaall_CMD());
+        this.getCommand("annehmen").setExecutor(new Annehmen_CMD());
+        this.getCommand("ablehnen").setExecutor(new Ablehnen_CMD());
+        // MSG
+        this.getCommand("socialspy").setExecutor(new SocialSpy_CMD());
+        this.getCommand("msgtoggle").setExecutor(new MsgToggle_CMD());
+        this.getCommand("msg").setExecutor(new Msg_CMD());
+        this.getCommand("r").setExecutor(new R_CMD());
 
         Bukkit.getConsoleSender().sendMessage("§f[]==============[ §4§l" + getDescription().getName() + " §f]==============[]");
         Bukkit.getConsoleSender().sendMessage("§f[]===[ §aDas Plugin wurde erfolgreich aktiviert.");
@@ -57,6 +88,36 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
 
         if(!getDataFolder().exists()){
             getDataFolder().mkdir();
+        }
+
+        File data = new File("plugins/CityBuildSystem/data");
+
+        if(!data.exists()){
+            data.mkdir();
+        }
+
+        if(!LocationManager.locations.exists()){
+            try {
+                LocationManager.locations.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(!Warp_CMD.warps.exists()){
+            try {
+                Warp_CMD.warps.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(!Home_CMD.homes.exists()){
+            try {
+                Home_CMD.homes.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 

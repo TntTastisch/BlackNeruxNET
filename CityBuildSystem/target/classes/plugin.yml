@@ -9,3 +9,29 @@ commands:
   vanish:
     aliases:
       - v
+  heal:
+  feed:
+  setspawn:
+  spawn:
+  fly:
+  teleport:
+    aliases:
+      - tp
+  tpall:
+  tphere:
+  delwarp:
+  setwarp:
+  warp:
+  home:
+  delhome:
+  sethome:
+  tpa:
+  tpahere:
+  tpaall:
+  tpatoggle:
+  annehmen:
+  ablehnen:
+  socialspy:
+  msg:
+  msgtoggle:
+  r:

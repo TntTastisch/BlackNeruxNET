@@ -2,9 +2,12 @@ package de.TntTastisch.BlackNerux.systems;
 
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+
 public class Data {
 
     public static String prefix = "§8» §e§lCITYBUILD §7▏ §7";
+    public static String prefixNachrichten = "§8» §a§lNachrichten §7▏ §7";
     public static String prefixSQL = "§8[§cCityBuildSQL§8] §7";
     public static String noPerms = "§cYou do not have permission to execute this command!";
     public static String noPlayer = prefix + "§cYou musst be a player!";
