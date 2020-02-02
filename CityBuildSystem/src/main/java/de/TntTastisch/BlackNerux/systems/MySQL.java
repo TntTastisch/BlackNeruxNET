@@ -97,8 +97,8 @@ public class MySQL {
 
     public static void createPlayer(final Player player) {
         if (!playerExists(player.getUniqueId().toString())) {
-            CityBuildSystem.mySQL.update("INSERT INTO players (UUID, Name, MsgEnable, SocialSpyEnable, TpaEnable, VanishEnable, FlyEnabled) VALUES " +
-                    "('" + player.getUniqueId().toString() + "', '" + player.getName() + "', '1', '0', '1', '0', '0');");
+            CityBuildSystem.mySQL.update("INSERT INTO players (UUID, Name, MsgEnable, SocialSpyEnable, TpaEnable, VanishEnable, FlyEnabled, Job) VALUES " +
+                    "('" + player.getUniqueId().toString() + "', '" + player.getName() + "', '1', '0', '1', '0', '0', 'Arbeitslos');");
         }
     }
 
@@ -214,6 +214,30 @@ public class MySQL {
                     rs.getInt("TpaEnable");
                 }
                 i = rs.getInt("TpaEnable");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setJob(String UUID, String job){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET Job= '" + job + "' WHERE UUID= '" + UUID + "';");
+        }
+
+    }
+
+    public static String getJob(final String UUID){
+        String i = " ";
+        if (playerExists(UUID)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + UUID + "'");
+                if (rs.next()) {
+                    rs.getString("Job");
+                }
+                i = rs.getString("Job");
             }
             catch (SQLException e) {
                 e.printStackTrace();

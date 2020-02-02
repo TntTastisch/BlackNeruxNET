@@ -56,4 +56,49 @@ public class Data {
         }
         return null;
     }
+
+    public static String getRank(Player player){
+        if(player.hasPermission("prefix.owner")){
+            return "§4Owner";
+        } else if(player.hasPermission("prefix.admin")){
+            return "§cAdministrator";
+        } else if(player.hasPermission("prefix.srmod")){
+            return "§2SrModerato";
+        } else if(player.hasPermission("prefix.dev")){
+            return "§bDeveloper";
+        } else if(player.hasPermission("prefix.mod")){
+            return "§2Moderator";
+        } else if(player.hasPermission("prefix.sup")){
+            return "§aSupporter";
+        } else if(player.hasPermission("prefix.builder")){
+            return "§9Builder";
+        } else if(player.hasPermission("prefix.designer")){
+            return "§eDesigner";
+        } else if(player.hasPermission("prefix.freund")){
+            return "§dFreund";
+        } else if(player.hasPermission("prefix.twitch")){
+            return "§5Twitch";
+        } else if(player.hasPermission("prefix.youtuber")){
+            return "§fYT";
+        } else if(player.hasPermission("prefix.platinplus")){
+            return "§7Platin§a+§7";
+        } else if(player.hasPermission("prefix.lapis")){
+            return "§9Lapis";
+        } else if(player.hasPermission("prefix.platin")){
+            return "§7Platin";
+        } else if(player.hasPermission("prefix.obsidian")){
+            return "§0Obsidian";
+        } else if(player.hasPermission("prefix.titan")){
+            return "§1Titan";
+        } else if(player.hasPermission("prefix.diamond")){
+            return "§3Diamond";
+        } else if(player.hasPermission("prefix.emerald")){
+            return "§aEmerald";
+        } else if(player.hasPermission("prefix.bronze")){
+            return "§6Bronze";
+        } else if(player.hasPermission("prefix.spieler")){
+            return "§8Spieler";
+        }
+        return null;
+    }
 }

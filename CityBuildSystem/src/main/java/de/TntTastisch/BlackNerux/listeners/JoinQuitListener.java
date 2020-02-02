@@ -4,6 +4,7 @@ import de.TntTastisch.BlackNerux.commands.Home_CMD;
 import de.TntTastisch.BlackNerux.systems.Data;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
+import de.TntTastisch.BlackNerux.utils.ScoreboardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -27,6 +28,7 @@ public class JoinQuitListener implements Listener {
         MySQL.createPlayer(player);
         LocationManager.getSpawn(player);
         Home_CMD.setConfigOnJoin(player);
+        ScoreboardManager.setScoreboard(player);
 
         if(player.hasPermission("citybuild.command.vanish")){
             if(MySQL.getVanish(player.getUniqueId().toString()) == 0){

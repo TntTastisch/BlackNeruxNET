@@ -4,11 +4,15 @@ import de.TntTastisch.BlackNerux.commands.*;
 import de.TntTastisch.BlackNerux.listeners.*;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
+import de.TntTastisch.BlackNerux.utils.ScoreboardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Score;
+import org.bukkit.scoreboard.Scoreboard;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,6 +35,8 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         manager.registerEvents(new ColouredAnvilListener(), this);
         manager.registerEvents(new DeathListener(), this);
         manager.registerEvents(new SocialSpyListener(), this);
+
+        ScoreboardManager.updateScoreboard();
 
         // Team Features
         this.getCommand("gamemode").setExecutor(new GameMode_CMD());
@@ -143,7 +149,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
 
         (CityBuildSystem.mySQL = new MySQL(host,port,database,user,password))
                 .update("CREATE TABLE IF NOT EXISTS players(UUID varchar(120), Name varchar(64), MsgEnable varchar(10), " +
-                        "SocialSpyEnable varchar(10), TpaEnable varchar(10), VanishEnable varchar(10), FlyEnabled varchar(10));");
+                        "SocialSpyEnable varchar(10), TpaEnable varchar(10), VanishEnable varchar(10), FlyEnabled varchar(10), Job varchar(64));");
 
 
     }
