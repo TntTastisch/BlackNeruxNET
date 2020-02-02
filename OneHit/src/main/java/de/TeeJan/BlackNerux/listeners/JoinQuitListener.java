@@ -48,8 +48,13 @@ public class JoinQuitListener implements Listener {
 
         Bukkit.broadcastMessage(Data.prefix + Data.getPlayerPrefix(player) + " §7hat das Spiel §cverlassen§7.");
 
-        for(Player all : Bukkit.getOnlinePlayers()) {
-            Scoreboard.setScoreboard(all);
-        }
+        Bukkit.getScheduler().runTaskLater(OneHit.getInstance(), new Runnable() {
+            public void run() {
+                for(Player all : Bukkit.getOnlinePlayers()) {
+                    Scoreboard.setScoreboard(all);
+                }
+            }
+        }, 20L);
+
     }
 }

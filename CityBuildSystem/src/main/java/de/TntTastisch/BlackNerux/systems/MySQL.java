@@ -1,6 +1,8 @@
 package de.TntTastisch.BlackNerux.systems;
 
+import de.TntTastisch.BlackNerux.CityBuildSystem;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.sql.*;
 
@@ -76,4 +78,52 @@ public class MySQL {
         }
         return rs;
     }
+
+    // players(UUID varchar(120), Name varchar(64), MsgEnable varchar(10), SocialSpyEnable varchar(10), TpaEnable varchar(10), VanishEnable varchar(10), FlyEnabled varchar(10)
+    public static boolean playerExists(final String UUID) {
+        try {
+            final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + UUID + "'");
+            return rs.next() && rs.getString("UUID") != null;
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        catch (NullPointerException error) {
+            return false;
+        }
+        return false;
+    }
+
+
+    public static void createPlayer(final Player player) {
+        if (!playerExists(player.getUniqueId().toString())) {
+            CityBuildSystem.mySQL.update("INSERT INTO players (UUID, Name, MsgEnable, SocialSpyEnable, TpaEnable, VanishEnable, FlyEnabled) VALUES " +
+                    "('" + player.getUniqueId().toString() + "', '" + player.getName() + "', '1', '0', '1', '0', '0');");
+        }
+    }
+
+    public static void setVanish(String UUID, int State){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET VanishEnable= '" + State + "' WHERE UUID= '" + UUID + "';");
+        }
+
+    }
+
+    public static Integer getVanish(final String uuid) {
+        Integer i = 0;
+        if (playerExists(uuid)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + uuid + "'");
+                if (rs.next()) {
+                    rs.getInt("VanishEnable");
+                }
+                i = rs.getInt("VanishEnable");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
 }

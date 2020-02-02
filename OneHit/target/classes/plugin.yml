@@ -1,6 +1,8 @@
 name: OneHit
-version: 1.0-SNAPSHOT
-author: TeeJan
+version: 1.1-SNAPSHOT
+authors:
+  - TeeJan
+  - TntTastisch
 main: de.TeeJan.BlackNerux.OneHit
 commands:
   setspawn:

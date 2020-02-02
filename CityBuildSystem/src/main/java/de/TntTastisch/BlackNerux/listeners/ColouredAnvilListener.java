@@ -15,15 +15,21 @@ public class ColouredAnvilListener implements Listener {
     public void colouredAnvil(final InventoryClickEvent event){
         try {
             if (event.getWhoClicked().hasPermission("citybuild.feature.colouredAnvil")) {
-                final Inventory inv = event.getInventory();
-                if (inv instanceof AnvilInventory) {
-                    final InventoryView view = event.getView();
-                    final int rawSlot = event.getRawSlot();
-                    if (rawSlot == view.convertSlot(rawSlot) && rawSlot == 2) {
-                        final ItemStack item = event.getCurrentItem();
+                Inventory inv = event.getInventory();
+
+                if ((inv instanceof org.bukkit.inventory.AnvilInventory)) {
+                    InventoryView view = event.getView();
+                    int rawSlot = event.getRawSlot();
+
+                    if ((rawSlot == view.convertSlot(rawSlot)) &&
+                            (rawSlot == 2)) {
+                        ItemStack item = event.getCurrentItem();
+
                         if (item != null) {
-                            final ItemMeta meta = item.getItemMeta();
+                            ItemMeta meta = item.getItemMeta();
+
                             meta.setDisplayName(meta.getDisplayName().replace("&", "§"));
+
                             item.setItemMeta(meta);
                         }
                     }

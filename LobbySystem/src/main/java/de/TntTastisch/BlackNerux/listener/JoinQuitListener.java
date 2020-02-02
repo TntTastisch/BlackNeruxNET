@@ -54,12 +54,8 @@ public class JoinQuitListener implements Listener {
 
         Location locs = player.getLocation();
 
-        if (!MySQL.playerExists(player.getUniqueId().toString())) {
-            LocationManager.getSpawn(player);
-        }
-
         MySQL.createPlayer(player.getUniqueId().toString(), player, locs.getX(), locs.getY(), locs.getZ(), locs.getYaw(), locs.getPitch(), locs.getWorld().getName());
-
+        if(MySQL.playerExists(player.getUniqueId().toString()) == false){LocationManager.getSpawn(player);}
         if (MySQL.playerExists(player.getUniqueId().toString())) {
             locs.setX(MySQL.getX(player.getUniqueId().toString()));
             locs.setY(MySQL.getY(player.getUniqueId().toString()));

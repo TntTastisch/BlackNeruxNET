@@ -45,7 +45,7 @@ public class OneHit extends JavaPlugin implements Listener {
 
         Bukkit.getConsoleSender().sendMessage("§f[]============[ §4§L" + getDescription().getName() + " §f]============[]");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §aDas Plugin wurde erfolgreich aktiviert!");
-        Bukkit.getConsoleSender().sendMessage("§f[]=====[ §aDer Pluginautor ist TeeJan");
+        Bukkit.getConsoleSender().sendMessage("§f[]=====[ §aDer Pluginautor ist TeeJan, TntTastisch");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §aDie Pluginversion ist die §5" + getDescription().getVersion());
         Bukkit.getConsoleSender().sendMessage("§f[]============[ §4§L" + getDescription().getName() + " §f]============[]");
     }
@@ -54,7 +54,7 @@ public class OneHit extends JavaPlugin implements Listener {
         OneHit.mySQL.disconnect();
         Bukkit.getConsoleSender().sendMessage("§f[]============[ §4§L" + getDescription().getName() + " §f]============[]");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §cDas Plugin wurde erfolgreich deaktiviert!");
-        Bukkit.getConsoleSender().sendMessage("§f[]=====[ §cDer Pluginautor ist TeeJan");
+        Bukkit.getConsoleSender().sendMessage("§f[]=====[ §cDer Pluginautor ist TeeJan, TntTastisch");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §cDie Pluginversion ist die §5" + getDescription().getVersion());
         Bukkit.getConsoleSender().sendMessage("§f[]============[ §4§L" + getDescription().getName() + " §f]============[]");
     }

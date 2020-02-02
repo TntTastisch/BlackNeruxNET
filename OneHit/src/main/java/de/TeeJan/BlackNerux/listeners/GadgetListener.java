@@ -39,6 +39,7 @@ public class GadgetListener implements Listener {
 
             List<String> speedGadget = new ArrayList<String>();
             List<String> jumpGadget = new ArrayList<String>();
+            List<String> arrowShop = new ArrayList<String>();
 
             speedGadget.add("§8§m-----------------------");
             speedGadget.add("§7Kosten für dieses Gadget§8:");
@@ -48,7 +49,12 @@ public class GadgetListener implements Listener {
             jumpGadget.add("§7Kosten für dieses Gadget§8:");
             jumpGadget.add("§e10.000 Coins");
 
+            arrowShop.add("§8§m-----------------------");
+            arrowShop.add("§7Kosten für dieses Item§8:");
+            arrowShop.add("§e20.000 Coins");
+
             inventory.setItem(11, new de.TntTastisch.BlackNerux.api.ItemAPI(Material.LEATHER_BOOTS).setColor(Color.GREEN).setDisplayname("§8➦ §bSpeed Gadget").setLore(speedGadget).create());
+            inventory.setItem(13, new de.TntTastisch.BlackNerux.api.ItemAPI(Material.ARROW).setDisplayname("§8➦ §532 Pfeile").setLore(arrowShop).create());
             inventory.setItem(15, new de.TntTastisch.BlackNerux.api.ItemAPI(Material.DIAMOND).setDisplayname("§8➦ §aJumpBoost Gadget").setLore(jumpGadget).create());
 
             player.openInventory(inventory);
@@ -71,6 +77,21 @@ public class GadgetListener implements Listener {
                     event.getView().close();
                 }
 
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §532 Pfeile")) {
+                if (MySQL.getCoins(player.getUniqueId().toString()) >= 20000) {
+                    MySQL.removeCoins(player.getUniqueId().toString(), 20000);
+                    Scoreboard.setScoreboard(player);
+
+                    player.sendMessage(Data.prefix + "§7Du hast §532x Pfeile §7in dein Iventar bekommen!");
+                    player.getInventory().setItem(8, new de.TntTastisch.BlackNerux.api.ItemAPI(Material.ARROW).setAmount(32).setDisplayname("§8➦ §ePfeil").create());
+                    event.getView().close();
+
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast nicht genügend Coins.");
+                    event.getView().close();
+                }
             }
 
             if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §aJumpBoost Gadget")) {
