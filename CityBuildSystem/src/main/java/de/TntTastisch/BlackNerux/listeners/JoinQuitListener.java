@@ -5,6 +5,7 @@ import de.TntTastisch.BlackNerux.systems.Data;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -51,6 +52,10 @@ public class JoinQuitListener implements Listener {
 
                 player.sendMessage(Data.prefix + "§7Du wurdest automatisch in den §6Flugmodus §7gesetzt.");
             }
+        }
+
+        if(player.getGameMode() == GameMode.CREATIVE){
+            player.setAllowFlight(true);
         }
 
 

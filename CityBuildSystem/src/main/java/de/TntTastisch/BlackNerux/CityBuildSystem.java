@@ -32,13 +32,17 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         manager.registerEvents(new DeathListener(), this);
         manager.registerEvents(new SocialSpyListener(), this);
 
+        // Team Features
         this.getCommand("gamemode").setExecutor(new GameMode_CMD());
         this.getCommand("vanish").setExecutor(new Vanish_CMD());
         this.getCommand("fly").setExecutor(new Fly_CMD());
+        // Features
         this.getCommand("feed").setExecutor(new Feed_CMD());
         this.getCommand("heal").setExecutor(new Heal_CMD());
+        // Location
         this.getCommand("setspawn").setExecutor(new SetSpawn_CMD());
         this.getCommand("spawn").setExecutor(new Spawn_CMD());
+        // Teleport
         this.getCommand("teleport").setExecutor(new Teleport_CMD());
         this.getCommand("tpall").setExecutor(new Tpall_CMD());
         this.getCommand("tphere").setExecutor(new Tphere_CMD());
