@@ -23,7 +23,7 @@ public class Home_CMD implements CommandExecutor {
 
     public static void setConfigOnJoin(Player player){
 
-        homesCFG.set(player.getUniqueId().toString() + ".Name" , player.getName());
+        homesCFG.set(player.getUniqueId().toString() + ".Homes." + "1" + ".Name" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "1" + ".X" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "1" + ".Y" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "1" + ".Z" , "");
@@ -31,6 +31,7 @@ public class Home_CMD implements CommandExecutor {
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "1" + ".Pitch" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "1" + ".World" , "");
 
+        homesCFG.set(player.getUniqueId().toString() + ".Homes." + "2" + ".Name" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "2" + ".X" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "2" + ".Y" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "2" + ".Z" , "");
@@ -38,6 +39,7 @@ public class Home_CMD implements CommandExecutor {
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "2" + ".Pitch" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "2" + ".World" , "");
 
+        homesCFG.set(player.getUniqueId().toString() + ".Homes." + "3" + ".Name" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "3" + ".X" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "3" + ".Y" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "3" + ".Z" , "");
@@ -45,6 +47,7 @@ public class Home_CMD implements CommandExecutor {
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "3" + ".Pitch" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "3" + ".World" , "");
 
+        homesCFG.set(player.getUniqueId().toString() + ".Homes." + "4" + ".Name" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "4" + ".X" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "4" + ".Y" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "4" + ".Z" , "");
@@ -52,6 +55,7 @@ public class Home_CMD implements CommandExecutor {
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "4" + ".Pitch" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "4" + ".World" , "");
 
+        homesCFG.set(player.getUniqueId().toString() + ".Homes." + "5" + ".Name" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "5" + ".X" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "5" + ".Y" , "");
         homesCFG.set(player.getUniqueId().toString() + ".Homes." + "5" + ".Z" , "");

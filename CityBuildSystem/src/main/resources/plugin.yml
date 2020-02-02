@@ -35,3 +35,6 @@ commands:
   msg:
   msgtoggle:
   r:
+  enderchest:
+    aliases:
+      - ec

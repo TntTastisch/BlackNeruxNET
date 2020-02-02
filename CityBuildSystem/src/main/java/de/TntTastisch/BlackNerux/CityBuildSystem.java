@@ -1,14 +1,20 @@
 package de.TntTastisch.BlackNerux;
 
+import de.TntTastisch.BlackNerux.api.ItemAPI;
 import de.TntTastisch.BlackNerux.commands.*;
 import de.TntTastisch.BlackNerux.listeners.*;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
 import de.TntTastisch.BlackNerux.utils.ScoreboardManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Score;
@@ -16,6 +22,9 @@ import org.bukkit.scoreboard.Scoreboard;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CityBuildSystem extends JavaPlugin implements Listener {
 
@@ -45,6 +54,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         // Features
         this.getCommand("feed").setExecutor(new Feed_CMD());
         this.getCommand("heal").setExecutor(new Heal_CMD());
+        this.getCommand("enderchest").setExecutor(new Enderchest_CMD());
         // Location
         this.getCommand("setspawn").setExecutor(new SetSpawn_CMD());
         this.getCommand("spawn").setExecutor(new Spawn_CMD());
@@ -72,6 +82,13 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("msgtoggle").setExecutor(new MsgToggle_CMD());
         this.getCommand("msg").setExecutor(new Msg_CMD());
         this.getCommand("r").setExecutor(new R_CMD());
+
+        // CRAFTING RECIPES
+        nonnenhausSchuh();
+        baumeisterHacke();
+        tntskuechenmesser();
+        SwordToGoldNugget();
+
 
         Bukkit.getConsoleSender().sendMessage("§f[]==============[ §4§l" + getDescription().getName() + " §f]==============[]");
         Bukkit.getConsoleSender().sendMessage("§f[]===[ §aDas Plugin wurde erfolgreich aktiviert.");
@@ -151,6 +168,121 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
                 .update("CREATE TABLE IF NOT EXISTS players(UUID varchar(120), Name varchar(64), MsgEnable varchar(10), " +
                         "SocialSpyEnable varchar(10), TpaEnable varchar(10), VanishEnable varchar(10), FlyEnabled varchar(10), Job varchar(64));");
 
+
+    }
+
+    public void nonnenhausSchuh(){
+        List<String> nonnenhausschuhlist = new ArrayList<>();
+        nonnenhausschuhlist.add(" ");
+        nonnenhausschuhlist.add("§b§lSpüre den Hausschuh §4§lGOTTES§b§l!!!");
+        nonnenhausschuhlist.add(" ");
+
+        ItemStack hausSchuh = new ItemStack(Material.LEATHER);
+        ItemMeta hausSchuhm = hausSchuh.getItemMeta();
+        hausSchuhm.setDisplayName("§b§lNonnen Hausschuh");
+        hausSchuhm.addEnchant(Enchantment.DAMAGE_ALL, 15 ,true);
+        hausSchuhm.addEnchant(Enchantment.KNOCKBACK, 10 ,true);
+        hausSchuhm.addEnchant(Enchantment.LOOT_BONUS_MOBS, -1 ,true);
+        hausSchuhm.setLore(nonnenhausschuhlist);
+        hausSchuhm.spigot().setUnbreakable(true);
+        hausSchuh.setItemMeta(hausSchuhm);
+
+        ShapedRecipe shapelessRecipe = new ShapedRecipe(hausSchuh);
+        shapelessRecipe.shape(new String[] {
+                "ABC", "DEF", "QRS"
+        });
+
+        shapelessRecipe.setIngredient('B' ,Material.LEATHER);
+        shapelessRecipe.setIngredient('D' ,Material.LEATHER);
+        shapelessRecipe.setIngredient('E' ,Material.BEACON);
+        shapelessRecipe.setIngredient('F' ,Material.LEATHER);
+        shapelessRecipe.setIngredient('R' ,Material.LEATHER);
+
+        this.getServer().addRecipe(shapelessRecipe);
+
+    }
+
+    public void SwordToGoldNugget(){
+
+        ItemStack goldnugget = new ItemStack(Material.GOLD_NUGGET);
+        ItemMeta goldnuggetm = goldnugget.getItemMeta();
+        goldnugget.setAmount(32);
+        goldnugget.setItemMeta(goldnuggetm);
+
+
+        ShapedRecipe shapelessRecipe = new ShapedRecipe(goldnugget);
+        shapelessRecipe.shape("AAA","AAA","AAA");
+
+        shapelessRecipe.setIngredient('A', Material.GOLD_SWORD);
+
+
+        Bukkit.addRecipe(shapelessRecipe);
+    }
+
+    public void baumeisterHacke(){
+        List<String> baumeisterhackelist = new ArrayList<>();
+
+        baumeisterhackelist.add(" ");
+        baumeisterhackelist.add("§a§lDie hast du nur, wenn du ein wahrer §2§lBauarbeiter §a§lbist!");
+        baumeisterhackelist.add(" ");
+
+        ItemStack baumeisterHacke = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemMeta baumeisterHackem = baumeisterHacke.getItemMeta();
+        baumeisterHackem.setDisplayName("§2§lEine wahre Baumeisterspitzhacke");
+        baumeisterHackem.addEnchant(Enchantment.DIG_SPEED, 10 ,true);
+        baumeisterHackem.addEnchant(Enchantment.DURABILITY, 5 ,true);
+        baumeisterHackem.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5 ,true);
+        baumeisterHackem.setLore(baumeisterhackelist);
+        baumeisterHackem.spigot().setUnbreakable(true);
+        baumeisterHacke.setItemMeta(baumeisterHackem);
+
+        ShapedRecipe shapelessRecipe = new ShapedRecipe(baumeisterHacke);
+        shapelessRecipe.shape(new String[] {
+                "ABC", "DEF", "QRS"
+        });
+
+        shapelessRecipe.setIngredient('A' ,Material.BEACON);
+        shapelessRecipe.setIngredient('B' ,Material.DRAGON_EGG);
+        shapelessRecipe.setIngredient('C' ,Material.BEACON);
+        shapelessRecipe.setIngredient('E' ,Material.DIAMOND_BLOCK);
+        shapelessRecipe.setIngredient('R' ,Material.DIAMOND_BLOCK);
+
+        this.getServer().addRecipe(shapelessRecipe);
+
+    }
+
+    public void tntskuechenmesser(){
+        List<String> tntskuechenmesserlist = new ArrayList<>();
+
+        tntskuechenmesserlist.add(" ");
+        tntskuechenmesserlist.add("§b§lNun kannst du den §4§lSchweinen §b§lauf den §e§lKopf §b§lhauen!");
+        tntskuechenmesserlist.add(" ");
+
+        ItemStack tntskuechenmesser = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta tntskuechenmesserm = tntskuechenmesser.getItemMeta();
+
+        tntskuechenmesserm.setDisplayName("§4§lTntTastisch's §c§lKüchenmesser");
+        tntskuechenmesserm.addEnchant(Enchantment.DAMAGE_ALL, 10 ,true);
+        tntskuechenmesserm.addEnchant(Enchantment.DURABILITY, 5 ,true);
+        tntskuechenmesserm.addEnchant(Enchantment.FIRE_ASPECT, 3 ,true);
+        tntskuechenmesserm.addEnchant(Enchantment.LOOT_BONUS_MOBS, 3 ,true);
+
+        tntskuechenmesserm.setLore(tntskuechenmesserlist);
+        tntskuechenmesserm.spigot().setUnbreakable(true);
+        tntskuechenmesser.setItemMeta(tntskuechenmesserm);
+
+        ShapedRecipe shapelessRecipe = new ShapedRecipe(tntskuechenmesser);
+        shapelessRecipe.shape(new String[] {
+                "ABC", "DEF", "QRS"
+        });
+
+        shapelessRecipe.setIngredient('B' ,Material.BEACON);
+        shapelessRecipe.setIngredient('D' ,Material.DIAMOND_BLOCK);
+        shapelessRecipe.setIngredient('E' ,Material.BEACON);
+        shapelessRecipe.setIngredient('F' ,Material.DIAMOND_BLOCK);
+        shapelessRecipe.setIngredient('R' ,Material.DRAGON_EGG);
+
+        this.getServer().addRecipe(shapelessRecipe);
 
     }
 }
