@@ -32,7 +32,7 @@ public class JoinQuitListener implements Listener {
             public void run() {
                 LocationManager.getSpawn(player);
             }
-        }, 20L*5);
+        }, 20L*3);
 
         Home_CMD.setConfigOnJoin(player);
         ScoreboardManager.setScoreboard(player);
