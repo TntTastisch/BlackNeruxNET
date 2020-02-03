@@ -1,5 +1,6 @@
 package de.TntTastisch.BlackNerux.listeners;
 
+import de.TntTastisch.BlackNerux.CityBuildSystem;
 import de.TntTastisch.BlackNerux.commands.Home_CMD;
 import de.TntTastisch.BlackNerux.systems.Data;
 import de.TntTastisch.BlackNerux.systems.MySQL;
@@ -26,7 +27,13 @@ public class JoinQuitListener implements Listener {
         event.setJoinMessage(null);
 
         MySQL.createPlayer(player);
-        LocationManager.getSpawn(player);
+        Bukkit.getScheduler().runTaskLater(CityBuildSystem.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                LocationManager.getSpawn(player);
+            }
+        }, 20L*5);
+
         Home_CMD.setConfigOnJoin(player);
         ScoreboardManager.setScoreboard(player);
 
