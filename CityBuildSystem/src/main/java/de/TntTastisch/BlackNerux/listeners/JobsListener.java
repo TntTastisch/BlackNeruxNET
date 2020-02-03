@@ -194,11 +194,11 @@ public class JobsListener implements Listener {
         if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Metzger")){
             if(player.getGameMode() == GameMode.SURVIVAL) {
 
-                if(!CityBuildSystem.economy.hasAccount(player)){
+                if (!CityBuildSystem.economy.hasAccount(player)) {
                     CityBuildSystem.economy.createPlayerAccount(player);
                 }
 
-                if(player.getGameMode() == GameMode.SURVIVAL) {
+                if (player.getGameMode() == GameMode.SURVIVAL) {
 
                     if (event.getEntityType() == EntityType.SHEEP) {
                         CityBuildSystem.economy.depositPlayer(player, 3.0);
