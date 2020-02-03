@@ -56,6 +56,8 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("gamemode").setExecutor(new GameMode_CMD());
         this.getCommand("vanish").setExecutor(new Vanish_CMD());
         this.getCommand("fly").setExecutor(new Fly_CMD());
+        this.getCommand("sign").setExecutor(new Sign_CMD());
+        this.getCommand("invsee").setExecutor(new Invsee_CMD());
         // Features
         this.getCommand("feed").setExecutor(new Feed_CMD());
         this.getCommand("jobs").setExecutor(new Job_CMD());
@@ -68,10 +70,6 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("teleport").setExecutor(new Teleport_CMD());
         this.getCommand("tpall").setExecutor(new Tpall_CMD());
         this.getCommand("tphere").setExecutor(new Tphere_CMD());
-        // Warp
-        this.getCommand("delwarp").setExecutor(new DelWarp_CMD());
-        this.getCommand("setwarp").setExecutor(new SetWarp_CMD());
-        this.getCommand("warp").setExecutor(new Warp_CMD());
         // Home
         this.getCommand("sethome").setExecutor(new SetHome_CMD());
         this.getCommand("delhome").setExecutor(new DelHome_CMD());
@@ -88,6 +86,10 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("msgtoggle").setExecutor(new MsgToggle_CMD());
         this.getCommand("msg").setExecutor(new Msg_CMD());
         this.getCommand("r").setExecutor(new R_CMD());
+        // TIME UNIT
+        this.getCommand("day").setExecutor(new Day_CMD());
+        this.getCommand("night").setExecutor(new Night_CMD());
+        this.getCommand("ptime").setExecutor(new PlayerTime_CMD());
 
         // CRAFTING RECIPES
         nonnenhausSchuh();
@@ -137,13 +139,6 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
             }
         }
 
-        if(!Warp_CMD.warps.exists()){
-            try {
-                Warp_CMD.warps.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
 
         if(!Home_CMD.homes.exists()){
             try {

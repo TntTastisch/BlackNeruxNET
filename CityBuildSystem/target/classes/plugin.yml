@@ -19,9 +19,6 @@ commands:
       - tp
   tpall:
   tphere:
-  delwarp:
-  setwarp:
-  warp:
   home:
   delhome:
   sethome:
@@ -41,3 +38,8 @@ commands:
   enderchest:
     aliases:
       - ec
+  ptime:
+  day:
+  night:
+  sign:
+  invsee:
