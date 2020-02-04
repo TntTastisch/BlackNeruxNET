@@ -1,8 +1,7 @@
 package de.TeeJan.BlackNerux.utils;
 
-        import de.TeeJan.BlackNerux.LaserTag;
-        import org.bukkit.Material;
-        import org.bukkit.entity.Player;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 
 public class PlayerInventories {
 

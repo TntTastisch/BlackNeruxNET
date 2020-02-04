@@ -7,7 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f712586-eef6-43f5-8538-db6a0b8ebd29" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/LaserTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/LaserTag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/systems/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/systems/MySQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +36,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1WFAhBtmDXsH6fbJpc1zwhcNNAi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -81,6 +86,9 @@
       <updated>1578735085304</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1578753653365">

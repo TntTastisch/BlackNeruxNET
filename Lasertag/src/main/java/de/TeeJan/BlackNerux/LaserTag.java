@@ -30,10 +30,9 @@ public class LaserTag extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-
         createFiles();
+        connectoToSQL();
         PluginManager manager = Bukkit.getPluginManager();
-
         GameState.setGamestate(GameState.LOBBY);
 
         manager.registerEvents(new JoinQuitListener(), this);
@@ -47,8 +46,6 @@ public class LaserTag extends JavaPlugin implements Listener {
 
         getCommand("setspawn").setExecutor(new SetSpawncmd());
 
-
-
         Bukkit.getConsoleSender().sendMessage("§f[]============[ §4§L" + getDescription().getName() + " §f]============[]");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §aDas Plugin wurde erfolgreich aktiviert!");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §aDer Pluginautor ist TeeJan");
@@ -57,6 +54,7 @@ public class LaserTag extends JavaPlugin implements Listener {
     }
     @Override
     public void onDisable() {
+        LaserTag.mySQL.disconnect();
         Bukkit.getConsoleSender().sendMessage("§f[]============[ §4§L" + getDescription().getName() + " §f]============[]");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §cDas Plugin wurde erfolgreich deaktiviert!");
         Bukkit.getConsoleSender().sendMessage("§f[]=====[ §cDer Pluginautor ist TeeJan");
@@ -87,6 +85,17 @@ public class LaserTag extends JavaPlugin implements Listener {
 
         configuration.options().copyDefaults(true);
         saveConfig();
+
+    }
+
+    public void connectoToSQL(){
+        String host = configuration.getString("MySQL.Host");
+        String port = configuration.getString("MySQL.Port");
+        String database = configuration.getString("MySQL.Database");
+        String user = configuration.getString("MySQL.User");
+        String password = configuration.getString("MySQL.Password");
+
+        (LaserTag.mySQL = new MySQL(host,port,database,user,password)).update("CREATE TABLE IF NO EXISTS LaserTag(UUID varchar(120), Ranking varchar(64), Wins varchar(64), PlayedGames varchar(64), Kills varchar(64), Deaths varchar(64));");
 
     }
 

@@ -7,6 +7,7 @@ import de.TeeJan.BlackNerux.Teams.TeamSelect;
 import de.TeeJan.BlackNerux.Teams.Teams;
 import de.TeeJan.BlackNerux.cmd.SpawnConfig;
 import de.TeeJan.BlackNerux.systems.Data;
+import de.TeeJan.BlackNerux.systems.MySQL;
 import de.TeeJan.BlackNerux.utils.GameState;
 import de.TeeJan.BlackNerux.utils.PlayerInventories;
 import de.TeeJan.BlackNerux.utils.ScoreboardManager;
@@ -46,6 +47,7 @@ public class JoinQuitListener implements Listener {
         event.setJoinMessage(null);
 
 
+        MySQL.createPlayer(player.getUniqueId().toString());
         ScoreboardManager.setScoreboard(player);
 
 
