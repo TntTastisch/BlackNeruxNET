@@ -1,0 +1,8 @@
+name: LaserTag
+version: 1.0-SNAPSHOT
+author: TeeJan
+helper: TntTastisch
+main: de.TeeJan.BlackNerux.LaserTag
+
+commands:
+  setspawn:
