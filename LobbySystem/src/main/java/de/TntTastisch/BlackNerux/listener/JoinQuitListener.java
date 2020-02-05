@@ -9,10 +9,7 @@ import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
 import de.TntTastisch.BlackNerux.utils.PlayerInventory;
 import de.TntTastisch.BlackNerux.utils.ScoreboardManager;
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -105,6 +102,107 @@ public class JoinQuitListener implements Listener {
                     all.hidePlayer(player);
                 }
             }
+        }
+
+        if(MySQL.getPaticle(player.getUniqueId().toString()) == 1){
+            GadgetListener.villager.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.HAPPY_VILLAGER, 600);
+                }
+            });
+            GadgetListener.villager.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 2){
+            GadgetListener.wasser.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.WATERDRIP, 600);
+                }
+            });
+            GadgetListener.wasser.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 3){
+            GadgetListener.lava.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.LAVADRIP, 600);
+                }
+            });
+            GadgetListener.lava.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 4){
+            GadgetListener.feuerwerk.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.FIREWORKS_SPARK, 600);
+                }
+            });
+            GadgetListener.feuerwerk.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 5){
+            GadgetListener.enderman.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.ENDER_SIGNAL, 600);
+                }
+            });
+            GadgetListener.enderman.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 6){
+            GadgetListener.herz.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.HEART, 600);
+                }
+            });
+            GadgetListener.herz.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 7){
+            GadgetListener.feuer.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.LAVA_POP, 600);
+                }
+            });
+            GadgetListener.feuer.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 8){
+            GadgetListener.schnee.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.SNOWBALL_BREAK, 600);
+                }
+            });
+            GadgetListener.schnee.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 9){
+            GadgetListener.schleim.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.SLIME, 600);
+                }
+            });
+            GadgetListener.schleim.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 10){
+            GadgetListener.noten.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.NOTE, 600);
+                }
+            });
+            GadgetListener.noten.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+        } else if(MySQL.getPaticle(player.getUniqueId().toString()) == 11){
+            GadgetListener.verzaubert.put(player, new BukkitRunnable() {
+
+                public void run() {
+                    Location location = player.getLocation();
+                    player.playEffect(location, Effect.WITCH_MAGIC, 600);
+                }
+            });
+            GadgetListener.verzaubert.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
         }
 
 
@@ -237,6 +335,41 @@ public class JoinQuitListener implements Listener {
         if(MySQL.getSchutzschild(player.getUniqueId().toString()) == 1){
             ShieldListener.run.get(player).cancel();
             ShieldListener.run.remove(player);
+        }
+
+        if(GadgetListener.villager.containsKey(player)) {
+            GadgetListener.villager.get(player).cancel();
+            GadgetListener.villager.remove(player);
+        } else if(GadgetListener.wasser.containsKey(player)) {
+            GadgetListener.wasser.get(player).cancel();
+            GadgetListener.wasser.remove(player);
+        } else if(GadgetListener.lava.containsKey(player)) {
+            GadgetListener.lava.get(player).cancel();
+            GadgetListener.lava.remove(player);
+        } else if(GadgetListener.feuer.containsKey(player)) {
+            GadgetListener.feuer.get(player).cancel();
+            GadgetListener.feuer.remove(player);
+        } else if(GadgetListener.enderman.containsKey(player)) {
+            GadgetListener.enderman.get(player).cancel();
+            GadgetListener.enderman.remove(player);
+        } else if(GadgetListener.herz.containsKey(player)){
+            GadgetListener.herz.get(player).cancel();
+            GadgetListener.herz.remove(player);
+        } else if(GadgetListener.feuerwerk.containsKey(player)){
+            GadgetListener.feuerwerk.get(player).cancel();
+            GadgetListener.feuerwerk.remove(player);
+        } else if(GadgetListener.schleim.containsKey(player)){
+            GadgetListener.schleim.get(player).cancel();
+            GadgetListener.schleim.remove(player);
+        } else if(GadgetListener.schnee.containsKey(player)){
+            GadgetListener.schnee.get(player).cancel();
+            GadgetListener.schnee.remove(player);
+        } else if(GadgetListener.noten.containsKey(player)){
+            GadgetListener.noten.get(player).cancel();
+            GadgetListener.noten.remove(player);
+        } else if(GadgetListener.verzaubert.containsKey(player)){
+            GadgetListener.verzaubert.get(player).cancel();
+            GadgetListener. verzaubert.remove(player);
         }
 
     }

@@ -5,9 +5,7 @@ import de.TntTastisch.BlackNerux.api.ItemAPI;
 import de.TntTastisch.BlackNerux.systems.Data;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.PlayerInventory;
-import org.bukkit.Bukkit;
-import org.bukkit.Color;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,11 +15,25 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.persistence.Lob;
+import java.util.HashMap;
 
 
 public class GadgetListener implements Listener {
+
+    public static HashMap<Player, BukkitRunnable> villager = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> wasser = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> lava = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> feuerwerk = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> enderman = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> herz = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> feuer = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> schnee = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> schleim = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> noten = new HashMap<Player, BukkitRunnable>();
+    public static HashMap<Player, BukkitRunnable> verzaubert = new HashMap<Player, BukkitRunnable>();
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
@@ -195,9 +207,658 @@ public class GadgetListener implements Listener {
                     MySQL.setParticle(player.getUniqueId().toString(), 0);
                     player.sendMessage(Data.prefix + "§7Du hast deine Partikel entfernt!");
 
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(herz.containsKey(player)){
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(feuerwerk.containsKey(player)){
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)){
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)){
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)){
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)){
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
                     event.getView().close();
                 } else {
                     player.sendMessage(Data.prefix + "§cDu hast keinen Partikel ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §aVillager")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 1) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 1);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §aVillager §7ausgewählt");
+
+                    if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(lava.containsKey(player)){
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)){
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(enderman.containsKey(player)){
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    villager.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.HAPPY_VILLAGER, 600);
+                        }
+                    });
+                    villager.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §9Wasser")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 2) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 2);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §9Wasser §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    wasser.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.WATERDRIP, 600);
+                        }
+                    });
+                    wasser.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §6Lava")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 3) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 3);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §6Lava §7ausgewählt");
+
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    lava.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.LAVADRIP, 600);
+                        }
+                    });
+                    lava.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+                    
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §fFeuerwerk")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 4) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 4);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §fFeuerwerk §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    feuerwerk.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.FIREWORKS_SPARK, 600);
+                        }
+                    });
+                    feuerwerk.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+                    
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §9Enderman")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 5) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 5);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §9Enderman §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    enderman.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.ENDER_SIGNAL, 600);
+                        }
+                    });
+                    enderman.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §4Herz")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 6) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 6);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §4Herz §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    herz.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.HEART, 600);
+                        }
+                    });
+                    herz.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §eFeuer")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 7) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 7);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §eFeuer §7ausgewählt");
+
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    feuer.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.LAVA_POP, 600);
+                        }
+                    });
+                    feuer.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §fSchnee")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 8) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 8);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §fSchnee §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)){
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    schnee.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.SNOWBALL_BREAK, 600);
+                        }
+                    });
+                    schnee.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §aSchleim")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 9) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 9);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §aSchleim §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(herz.containsKey(player)) {
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(noten.containsKey(player)) {
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    schleim.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.SLIME, 600);
+                        }
+                    });
+                    schleim.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §9N§ao§4t§5e§3n")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 10) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 10);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §9N§ao§4t§5e§3n §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(herz.containsKey(player)){
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(wasser.containsKey(player)){
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(enderman.containsKey(player)){
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(schleim.containsKey(player)) {
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(verzaubert.containsKey(player)) {
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
+                    noten.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.NOTE, 600);
+                        }
+                    });
+                    noten.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
+                    event.getView().close();
+                }
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §5Verzaubert")){
+                if (MySQL.getPaticle(player.getUniqueId().toString()) != 11) {
+                    MySQL.setParticle(player.getUniqueId().toString(), 11);
+                    player.sendMessage(Data.prefix + "§7Du hast den Partikel-Effekt §5Verzaubert §7ausgewählt");
+
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if (lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(herz.containsKey(player)){
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(wasser.containsKey(player)){
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                     } else if(feuerwerk.containsKey(player)) {
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schnee.containsKey(player)) {
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(schleim.containsKey(player)){
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(noten.containsKey(player)){
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    }
+
+                    verzaubert.put(player, new BukkitRunnable() {
+
+                        public void run() {
+                            Location location = player.getLocation();
+                            player.playEffect(location, Effect.WITCH_MAGIC, 600);
+                        }
+                    });
+                    verzaubert.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
+
+
+
+                    event.getView().close();
+                } else {
+                    player.sendMessage(Data.prefix + "§cDu hast bereits diesen Partikel-Effekt ausgewählt!");
                     event.getView().close();
                 }
             }

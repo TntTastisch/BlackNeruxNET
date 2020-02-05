@@ -56,7 +56,7 @@ public class JoinQuitListener implements Listener {
         }
 
         if (GameState.getGamestate() == GameState.LOBBY) {
-            Bukkit.broadcastMessage(Data.prefix + "§6" + TeamChat.getPlayerPrefix(player) + " §7hat das Spiel §abetreten§7.");
+            Bukkit.broadcastMessage(Data.prefix + "§6" + Data.getPlayerPrefix(player) + " §7hat das Spiel §abetreten§7.");
             ingames.add(player);
 
             player.setGameMode(GameMode.SURVIVAL);
@@ -123,7 +123,7 @@ public class JoinQuitListener implements Listener {
         if (GameState.getGamestate() == GameState.LOBBY) {
             ingames.remove(player);
             Teams.removequit(player);
-            Bukkit.broadcastMessage(Data.prefix + "§6" + TeamChat.getPlayerPrefix(player) + " §7hat das Spiel §cverlassen§7.");
+            Bukkit.broadcastMessage(Data.prefix + "§6" + Data.getPlayerPrefix(player) + " §7hat das Spiel §cverlassen§7.");
 
         }
 
