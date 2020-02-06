@@ -132,33 +132,30 @@ public class JobsListener implements Listener {
         if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Minenarbeiter")){
             if(player.getGameMode() == GameMode.SURVIVAL) {
 
-                if(!CityBuildSystem.economy.hasAccount(player)){
-                    CityBuildSystem.economy.createPlayerAccount(player);
-                }
 
                 if (event.getBlock().getType() == Material.IRON_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 3.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 3);
                     player.sendMessage(Data.prefix + "§a+§73$");
                 } else if (event.getBlock().getType() == Material.GOLD_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 2.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 2);
                     player.sendMessage(Data.prefix + "§a+§72$");
                 } else if (event.getBlock().getType() == Material.COAL_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 1.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 1);
                     player.sendMessage(Data.prefix + "§a+§71$");
                 } else if (event.getBlock().getType() == Material.DIAMOND_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 10.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 10);
                     player.sendMessage(Data.prefix + "§a+§710$");
                 } else if (event.getBlock().getType() == Material.EMERALD_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 8.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 8);
                     player.sendMessage(Data.prefix + "§a+§78$");
                 } else if (event.getBlock().getType() == Material.LAPIS_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 7.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 7);
                     player.sendMessage(Data.prefix + "§a+§77$");
                 } else if (event.getBlock().getType() == Material.REDSTONE_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 2.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 2);
                     player.sendMessage(Data.prefix + "§a+§72$");
                 } else if (event.getBlock().getType() == Material.QUARTZ_ORE) {
-                    CityBuildSystem.economy.depositPlayer(player, 4.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 4);
                     player.sendMessage(Data.prefix + "§a+§74$");
                 }
             }
@@ -172,15 +169,11 @@ public class JobsListener implements Listener {
         if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Holzfäller")){
             if(player.getGameMode() == GameMode.SURVIVAL) {
 
-                if(!CityBuildSystem.economy.hasAccount(player)){
-                    CityBuildSystem.economy.createPlayerAccount(player);
-                }
-
                 if (event.getBlock().getType() == Material.LOG) {
-                    CityBuildSystem.economy.depositPlayer(player, 2.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 2);
                     player.sendMessage(Data.prefix + "§a+§72$");
                 } else if (event.getBlock().getType() == Material.LOG_2) {
-                    CityBuildSystem.economy.depositPlayer(player, 2.0);
+                    MySQL.addMoney(player.getUniqueId().toString(), 2);
                     player.sendMessage(Data.prefix + "§a+§72$");
                 }
             }
@@ -194,34 +187,30 @@ public class JobsListener implements Listener {
         if(MySQL.getJob(player.getUniqueId().toString()).equalsIgnoreCase("Metzger")){
             if(player.getGameMode() == GameMode.SURVIVAL) {
 
-                if (!CityBuildSystem.economy.hasAccount(player)) {
-                    CityBuildSystem.economy.createPlayerAccount(player);
-                }
-
                 if (player.getGameMode() == GameMode.SURVIVAL) {
 
                     if (event.getEntityType() == EntityType.SHEEP) {
-                        CityBuildSystem.economy.depositPlayer(player, 3.0);
+                        MySQL.addMoney(player.getUniqueId().toString(), 3);
                         player.sendMessage(Data.prefix + "§a+§73$");
 
                     } else if (event.getEntityType() == EntityType.PIG) {
-                        CityBuildSystem.economy.depositPlayer(player, 4.0);
+                        MySQL.addMoney(player.getUniqueId().toString(), 4);
                         player.sendMessage(Data.prefix + "§a+§74$");
 
                     } else if (event.getEntityType() == EntityType.COW) {
-                        CityBuildSystem.economy.depositPlayer(player, 2.0);
+                        MySQL.addMoney(player.getUniqueId().toString(), 2);
                         player.sendMessage(Data.prefix + "§a+§72$");
 
                     } else if (event.getEntityType() == EntityType.MUSHROOM_COW) {
-                        CityBuildSystem.economy.depositPlayer(player, 6.0);
+                        MySQL.addMoney(player.getUniqueId().toString(), 6);
                         player.sendMessage(Data.prefix + "§a+§76$");
 
                     } else if (event.getEntityType() == EntityType.CHICKEN) {
-                        CityBuildSystem.economy.depositPlayer(player, 1.0);
+                        MySQL.addMoney(player.getUniqueId().toString(), 1);
                         player.sendMessage(Data.prefix + "§a+§71$");
 
                     } else if (event.getEntityType() == EntityType.HORSE) {
-                        CityBuildSystem.economy.depositPlayer(player, 5.0);
+                        MySQL.addMoney(player.getUniqueId().toString(), 5);
                         player.sendMessage(Data.prefix + "§a+§75$");
                     }
                 }

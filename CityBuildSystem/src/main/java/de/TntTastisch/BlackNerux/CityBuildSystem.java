@@ -6,7 +6,6 @@ import de.TntTastisch.BlackNerux.listeners.*;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.LocationManager;
 import de.TntTastisch.BlackNerux.utils.ScoreboardManager;
-import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -32,7 +31,6 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
 
     public static CityBuildSystem plugin;
     public static MySQL mySQL;
-    public static Economy economy = null;
     public FileConfiguration configuration = this.getConfig();
 
     @Override
@@ -40,7 +38,6 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         plugin = this;
         createFiles();
         connectToSQL();
-        setupEconomy();
         PluginManager manager = Bukkit.getPluginManager();
 
         manager.registerEvents(new ColouredSignListener(), this);
@@ -90,6 +87,9 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("day").setExecutor(new Day_CMD());
         this.getCommand("night").setExecutor(new Night_CMD());
         this.getCommand("ptime").setExecutor(new PlayerTime_CMD());
+        // MONEY SYSTEM
+        this.getCommand("money").setExecutor(new Money_CMD());
+        this.getCommand("pay").setExecutor(new Pay_CMD());
 
         // CRAFTING RECIPES
         nonnenhausSchuh();
@@ -167,19 +167,9 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
 
         (CityBuildSystem.mySQL = new MySQL(host,port,database,user,password))
                 .update("CREATE TABLE IF NOT EXISTS players(UUID varchar(120), Name varchar(64), MsgEnable varchar(10), " +
-                        "SocialSpyEnable varchar(10), TpaEnable varchar(10), VanishEnable varchar(10), FlyEnabled varchar(10), Job varchar(64));");
+                        "SocialSpyEnable varchar(10), TpaEnable varchar(10), VanishEnable varchar(10), FlyEnabled varchar(10), Job varchar(64), money varchar(120));");
 
 
-    }
-
-    private boolean setupEconomy()
-    {
-        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
-        if (economyProvider != null) {
-            economy = economyProvider.getProvider();
-        }
-
-        return (economy != null);
     }
 
 

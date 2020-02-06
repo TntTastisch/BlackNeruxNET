@@ -96,7 +96,7 @@ public class ScoreboardManager {
         final PacketPlayOutScoreboardScore ps4 = new PacketPlayOutScoreboardScore(s4);
         sendPacket(player, (Packet<?>)ps4);
 
-        final ScoreboardScore s5 = new ScoreboardScore(scoreboard, obj, "§7➟ §e" + PlaceholderAPI.setPlaceholders(player, "%vault_eco_balance_fixed%") + "$");
+        final ScoreboardScore s5 = new ScoreboardScore(scoreboard, obj, "§7➟ §e" + MySQL.getMoney(player.getUniqueId().toString()) + "$");
         s5.setScore(7);
         final PacketPlayOutScoreboardScore ps5 = new PacketPlayOutScoreboardScore(s5);
         sendPacket(player, (Packet<?>)ps5);

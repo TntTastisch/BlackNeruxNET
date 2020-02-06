@@ -34,7 +34,6 @@ public class MySQL {
     public void connect(){
         try {
             connection = DriverManager.getConnection("jdbc:mysql://" + this.HOST + ":" + this.PORT + "/" + this.DATABASE, this.USER, this.PASSWORD);
-
             Bukkit.getConsoleSender().sendMessage(Data.prefixSQL + "§aEine Verbindung zur MySQL-Datenbank wurde erfolgreich hergestellt!");
         } catch (SQLException e){
             Bukkit.getConsoleSender().sendMessage(Data.prefixSQL + "§cEine Verbindung zur MySQL-Datenbank konnte nicht aufgebaut werden...");
@@ -97,8 +96,8 @@ public class MySQL {
 
     public static void createPlayer(final Player player) {
         if (!playerExists(player.getUniqueId().toString())) {
-            CityBuildSystem.mySQL.update("INSERT INTO players (UUID, Name, MsgEnable, SocialSpyEnable, TpaEnable, VanishEnable, FlyEnabled, Job) VALUES " +
-                    "('" + player.getUniqueId().toString() + "', '" + player.getName() + "', '1', '0', '1', '0', '0', 'Arbeitslos');");
+            CityBuildSystem.mySQL.update("INSERT INTO players (UUID, Name, MsgEnable, SocialSpyEnable, TpaEnable, VanishEnable, FlyEnabled, Job, money) VALUES " +
+                    "('" + player.getUniqueId().toString() + "', '" + player.getName() + "', '1', '0', '1', '0', '0', 'Arbeitslos', '1000');");
         }
     }
 
@@ -244,5 +243,43 @@ public class MySQL {
             }
         }
         return i;
+    }
+
+    // players (UUID, Name, MsgEnable, SocialSpyEnable, TpaEnable, VanishEnable, FlyEnabled, Job, money)
+
+
+    public static Integer getMoney(final String UUID){
+        int i = -999;
+        if (playerExists(UUID)) {
+            try {
+                final ResultSet rs = CityBuildSystem.mySQL.query("SELECT * FROM players WHERE UUID= '" + UUID + "'");
+                if (rs.next()) {
+                    rs.getInt("money");
+                }
+                i = rs.getInt("money");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setMoney(String UUID, Integer money){
+        if (playerExists(UUID)) {
+            CityBuildSystem.mySQL.update("UPDATE players SET money= '" + money + "' WHERE UUID= '" + UUID + "';");
+        }
+    }
+
+    public static void addMoney(String UUID, Integer money){
+        if (playerExists(UUID)) {
+            setMoney(UUID, getMoney(UUID) + money);
+        }
+    }
+
+    public static void removeMoney(String UUID, Integer money){
+        if (playerExists(UUID)) {
+            setMoney(UUID, getMoney(UUID) - money);
+        }
     }
 }
