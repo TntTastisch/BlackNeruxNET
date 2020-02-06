@@ -8,13 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0f712586-eef6-43f5-8538-db6a0b8ebd29" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/Teams/TeamChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/Teams/TeamChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/listeners/JoinQuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/listeners/JoinQuitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/systems/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lasertag/src/main/java/de/TeeJan/BlackNerux/systems/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/out/artifacts/LobbySystem/LobbySystem.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/out/artifacts/LobbySystem/LobbySystem.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/listener/GadgetListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/listener/GadgetListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

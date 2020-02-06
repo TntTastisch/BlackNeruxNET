@@ -63,6 +63,41 @@ public class GadgetListener implements Listener {
                     player.getInventory().setHelmet(new ItemAPI(Material.AIR).create());
                     player.getInventory().setItem(3, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §4§lGadget §8× §c§lKein Gadget").create());
 
+                    if(villager.containsKey(player)) {
+                        villager.get(player).cancel();
+                        villager.remove(player);
+                    } else if(wasser.containsKey(player)) {
+                        wasser.get(player).cancel();
+                        wasser.remove(player);
+                    } else if(lava.containsKey(player)) {
+                        lava.get(player).cancel();
+                        lava.remove(player);
+                    } else if(feuer.containsKey(player)) {
+                        feuer.get(player).cancel();
+                        feuer.remove(player);
+                    } else if(enderman.containsKey(player)) {
+                        enderman.get(player).cancel();
+                        enderman.remove(player);
+                    } else if(herz.containsKey(player)){
+                        herz.get(player).cancel();
+                        herz.remove(player);
+                    } else if(feuerwerk.containsKey(player)){
+                        feuerwerk.get(player).cancel();
+                        feuerwerk.remove(player);
+                    } else if(schleim.containsKey(player)){
+                        schleim.get(player).cancel();
+                        schleim.remove(player);
+                    } else if(schnee.containsKey(player)){
+                        schnee.get(player).cancel();
+                        schnee.remove(player);
+                    } else if(noten.containsKey(player)){
+                        noten.get(player).cancel();
+                        noten.remove(player);
+                    } else if(verzaubert.containsKey(player)){
+                        verzaubert.get(player).cancel();
+                        verzaubert.remove(player);
+                    }
+
                     player.sendMessage(Data.prefix + "§7Du hast alle Extras entfernt!");
                     event.getView().close();
                 } else {
@@ -140,11 +175,11 @@ public class GadgetListener implements Listener {
                 inventory.setItem(12, new ItemAPI(Material.IRON_AXE).setDisplayname("§8➦ §fThors Hammer").create());
                 inventory.setItem(13, new ItemAPI(Material.BLAZE_POWDER).setDisplayname("§8➦ §6Partikel Bombe").create());
                 inventory.setItem(14, new ItemAPI(Material.FIREWORK).setDisplayname("§8➦ §1Feuerwerk").create());
-                inventory.setItem(15, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ ").create());
+                inventory.setItem(15, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
 
-                inventory.setItem(21, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ ").create());
-                inventory.setItem(22, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ ").create());
-                inventory.setItem(23, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ ").create());
+                inventory.setItem(21, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
+                inventory.setItem(22, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
+                inventory.setItem(23, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
 
 
                 inventory.setItem(0, ItemAPI.SkullBuilder("§8➦ §cZurück", "MHF_ArrowLeft"));
