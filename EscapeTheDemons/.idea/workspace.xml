@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f712586-eef6-43f5-8538-db6a0b8ebd29" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/listener/GadgetListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/listener/GadgetListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -169,17 +169,25 @@ public class GadgetListener implements Listener {
 
                 inventory.setItem(3, new ItemAPI(Material.ENDER_PEARL).setDisplayname("§8➦ §5Enderperle").create());
                 inventory.setItem(4, new ItemAPI(Material.FISHING_ROD).setDisplayname("§8➦ §eEnterhaken").create());
-                inventory.setItem(5, new ItemAPI(Material.FIREWORK_CHARGE).setDisplayname("§8➦ §cStacker").create());
+                inventory.setItem(5, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
 
-                inventory.setItem(11, new ItemAPI(Material.LEATHER_BOOTS).setColor(Color.GREEN).setUnbreakable(true).setDisplayname("§8➦ §aSpeedschuhe").create());
-                inventory.setItem(12, new ItemAPI(Material.IRON_AXE).setDisplayname("§8➦ §fThors Hammer").create());
-                inventory.setItem(13, new ItemAPI(Material.BLAZE_POWDER).setDisplayname("§8➦ §6Partikel Bombe").create());
-                inventory.setItem(14, new ItemAPI(Material.FIREWORK).setDisplayname("§8➦ §1Feuerwerk").create());
+                inventory.setItem(11, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
+                inventory.setItem(12, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
+                inventory.setItem(13, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
+                inventory.setItem(14, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
                 inventory.setItem(15, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
 
                 inventory.setItem(21, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
                 inventory.setItem(22, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
                 inventory.setItem(23, new ItemAPI(Material.BARRIER).setDisplayname("§8➦ §cComming Soon").create());
+
+                /*
+                   inventory.setItem(5, new ItemAPI(Material.FIREWORK_CHARGE).setDisplayname("§8➦ §cStacker").create());
+
+                inventory.setItem(11, new ItemAPI(Material.LEATHER_BOOTS).setColor(Color.GREEN).setUnbreakable(true).setDisplayname("§8➦ §aSpeedschuhe").create());
+                inventory.setItem(12, new ItemAPI(Material.IRON_AXE).setDisplayname("§8➦ §fThors Hammer").create());
+                inventory.setItem(13, new ItemAPI(Material.BLAZE_POWDER).setDisplayname("§8➦ §6Partikel Bombe").create());
+                 */
 
 
                 inventory.setItem(0, ItemAPI.SkullBuilder("§8➦ §cZurück", "MHF_ArrowLeft"));
@@ -951,6 +959,7 @@ public class GadgetListener implements Listener {
                     event.getView().close();
                 }
             }
+
 
         }
 
