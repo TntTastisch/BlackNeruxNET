@@ -7,25 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f712586-eef6-43f5-8538-db6a0b8ebd29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../CityBuildSystem/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CityBuildSystem/out/CityBuild-System.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/commands/Money_CMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/commands/Pay_CMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/.idea/artifacts/CityBuild_System.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/.idea/artifacts/CityBuild_System.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CityBuildSystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/CityBuildSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/CityBuildSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/listeners/JobsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/listeners/JobsListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/systems/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/systems/MySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/utils/ScoreboardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/java/de/TntTastisch/BlackNerux/utils/ScoreboardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/CityBuildSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/CityBuildSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/listeners/JobsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/listeners/JobsListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/systems/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/systems/MySQL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CityBuildSystem/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../CityBuildSystem/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OneHit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OneHit/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
