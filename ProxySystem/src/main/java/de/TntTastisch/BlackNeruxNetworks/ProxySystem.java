@@ -45,6 +45,7 @@ public class ProxySystem extends Plugin implements Listener {
         createFiles();
         createMySQLConnection();
         autoRestart();
+        addTab();
         plugin = this;
 
         PluginManager pluginManager = BungeeCord.getInstance().getPluginManager();
@@ -74,6 +75,8 @@ public class ProxySystem extends Plugin implements Listener {
             }
         }, 0L, 1L, TimeUnit.SECONDS);
 
+
+
         BungeeCord.getInstance().getConsole().sendMessage(new TextComponent("§f[]===========[ §4§l" + getDescription().getName() + " §f]===========[]"));
         BungeeCord.getInstance().getConsole().sendMessage(new TextComponent("§f[]====[ §a" + getDescription().getName() + " wurde erfolgreich aktiviert."));
         BungeeCord.getInstance().getConsole().sendMessage(new TextComponent("§f[]====[ §a" + getDescription().getName() + " Version §b" + getDescription().getVersion()));
@@ -93,6 +96,21 @@ public class ProxySystem extends Plugin implements Listener {
 
     public static Plugin getInstance() {
         return plugin;
+    }
+
+    public void addTab(){
+        AntiTabListener.bypasstabcomplete.add("/lobby");
+        AntiTabListener.bypasstabcomplete.add("/hub");
+        AntiTabListener.bypasstabcomplete.add("/l");
+        AntiTabListener.bypasstabcomplete.add("/game");
+        AntiTabListener.bypasstabcomplete.add("/hub");
+        AntiTabListener.bypasstabcomplete.add("/party");
+        AntiTabListener.bypasstabcomplete.add("/friend");
+        AntiTabListener.bypasstabcomplete.add("/clan");
+        AntiTabListener.bypasstabcomplete.add("/report");
+        AntiTabListener.bypasstabcomplete.add("/link");
+        AntiTabListener.bypasstabcomplete.add("/unlink");
+        AntiTabListener.bypasstabcomplete.add("/help");
     }
 
     private void createFiles() {

@@ -14,18 +14,7 @@ public class AntiTabListener implements Listener {
     public static final List<String> bypasstabcomplete = new LinkedList<String>();
 
     static {
-        bypasstabcomplete.add("/lobby");
-        bypasstabcomplete.add("/hub");
-        bypasstabcomplete.add("/l");
-        bypasstabcomplete.add("/game");
-        bypasstabcomplete.add("/hub");
-        bypasstabcomplete.add("/party");
-        bypasstabcomplete.add("/friend");
-        bypasstabcomplete.add("/clan");
-        bypasstabcomplete.add("/report");
-        bypasstabcomplete.add("/link");
-        bypasstabcomplete.add("/unlink");
-        bypasstabcomplete.add("/help");
+
     }
 
     @EventHandler(priority = 64)
