@@ -1,5 +1,6 @@
 package de.TntTastisch.BlackNerux.utils;
 
+import de.TntTastisch.BlackNerux.listener.JoinQuitListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -19,7 +20,7 @@ public class Scoreboard {
 
         objective.getScore("§a§l§b§4§5").setScore(15);
         objective.getScore("§8➥ §f§lKarte").setScore(14);
-        objective.getScore("§7➟ §e§lMAPVOTING").setScore(13);
+        objective.getScore("§7➟ §e§l" + JoinQuitListener.playedGame).setScore(13);
         objective.getScore("§a§4§5§7§l§c").setScore(12);
         objective.getScore("§8➥ §f§lSpieler").setScore(11);
         objective.getScore("§7➟ §a" + Bukkit.getOnlinePlayers().size()).setScore(10);

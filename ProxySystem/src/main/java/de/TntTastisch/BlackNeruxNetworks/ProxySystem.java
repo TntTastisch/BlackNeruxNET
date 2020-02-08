@@ -1,6 +1,7 @@
 package de.TntTastisch.BlackNeruxNetworks;
 
 import de.TntTastisch.BlackNeruxNetworks.commands.*;
+import de.TntTastisch.BlackNeruxNetworks.listeners.AntiTabListener;
 import de.TntTastisch.BlackNeruxNetworks.listeners.BlockedMessagesListener;
 import de.TntTastisch.BlackNeruxNetworks.listeners.ChatListener;
 import de.TntTastisch.BlackNeruxNetworks.listeners.JoinQuitListener;
@@ -51,6 +52,7 @@ public class ProxySystem extends Plugin implements Listener {
         pluginManager.registerListener(this, new JoinQuitListener());
         pluginManager.registerListener(this, new ChatListener());
         pluginManager.registerListener(this, new BlockedMessagesListener());
+        pluginManager.registerListener(this, new AntiTabListener());
 
         pluginManager.registerCommand(this, new Broadcast_CMD());
         pluginManager.registerCommand(this, new FullNetworkRestart_CMD());

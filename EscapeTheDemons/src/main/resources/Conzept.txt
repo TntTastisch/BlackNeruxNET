@@ -1,0 +1,9 @@
+Escape The Demons:
+- Hauptbefehl: /etd > yes
+-   createMap > Yes
+-   deleteMap -> Yes
+-   set Spawns -> Yes
+-  forcemap -> Yes
+-  start -> No
+-
+-

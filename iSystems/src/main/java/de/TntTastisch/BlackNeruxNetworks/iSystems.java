@@ -151,56 +151,12 @@ public class iSystems extends JavaPlugin implements Listener {
         final Player player = event.getPlayer();
         final CloudPlayer cloudPlayer = CloudAPI.getInstance().getOnlinePlayer(player.getUniqueId());
 
-
-        sendCurrentPlayingGamemode(player, true, "§4§lBlackNeruxNET §8× §e§l" + cloudPlayer.getServer().toString());
-
-        try {
-            final Field channelfield = NetworkManager.class.getDeclaredField("i");
-            channelfield.setAccessible(true);
-
-            final Channel channel = (Channel) channelfield.get(((CraftPlayer) player).getHandle().playerConnection.networkManager);
-            channel.pipeline().addAfter("decoder", iSystems.CHANNEL_NAME, new MessageToMessageDecoder<Packet>() {
-                @Override
-                protected void decode(ChannelHandlerContext context, Packet packet, List<Object> list) throws Exception {
-
-                    if(!(packet instanceof PacketPlayInTabComplete)){
-                        list.add(packet);
-                        return;
-                    }
-
-                    final PacketPlayInTabComplete packetPlayInTabComplete = (PacketPlayInTabComplete) packet;
-                    final String tabbingText = packetPlayInTabComplete.a();
-                    if(tabbingText.startsWith(COMMAND_PREFIX) && tabbingText.endsWith(" ")){
-                        list.add(packet);
-                        return;
-                    }
-
-                    final String[] tabbingWords = tabbingText.split(" ");
-                    final int tabbingWordsLength = tabbingWords.length;
-                    if(tabbingWordsLength != 1){
-                        list.add(packet);
-                        return;
-                    }
-
-                    String tabbingWordWithPrefix = tabbingWords[tabbingWordsLength - 1];
-                    final String tabbingWord = tabbingWordWithPrefix.substring(1, tabbingWordWithPrefix.length());
-                    final String[] allowedCommands =
-                            ((CraftServer) Bukkit.getServer()).getCommandMap().getCommands()
-                            .stream()
-                            .distinct()
-                            .filter(command -> command.getLabel().startsWith(tabbingWord)
-                            && command.getPermission() != null && player.hasPermission(command.getPermission()))
-                            .map(command -> COMMAND_PREFIX + command.getLabel())
-                            .sorted()
-                            .toArray(String[]::new);
-
-                    ((CraftPlayer)player).getHandle().playerConnection.sendPacket(new PacketPlayOutTabComplete(allowedCommands));
-
-                }
-            });
-        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e){
-            e.printStackTrace();
-        }
+        Bukkit.getScheduler().runTaskLater(this, new Runnable() {
+            @Override
+            public void run() {
+                sendCurrentPlayingGamemode(player, true, "§4§lBlackNeruxNET §8× §e§l" + cloudPlayer.getServer().toString());
+            }
+        }, 20L);
 
 
     }
