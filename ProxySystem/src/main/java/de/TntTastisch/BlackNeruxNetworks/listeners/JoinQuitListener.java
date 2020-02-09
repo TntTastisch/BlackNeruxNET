@@ -5,6 +5,7 @@ import de.TntTastisch.BlackNeruxNetworks.ProxySystem;
 import de.TntTastisch.BlackNeruxNetworks.system.Data;
 import de.TntTastisch.BlackNeruxNetworks.system.MySQL;
 import de.dytanic.cloudnet.api.CloudAPI;
+import de.dytanic.cloudnet.lib.player.CloudPlayer;
 import net.labymod.serverapi.LabyModAPI;
 import net.labymod.serverapi.bungee.LabyModPlugin;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -31,6 +32,7 @@ public class JoinQuitListener implements Listener {
         ProxiedPlayer player = event.getPlayer();
 
         MySQL.createPlayer(player);
+
 
         if(MySQL.getIp(player.getUniqueId().toString()) != player.getAddress().getAddress().getHostAddress()) {
             MySQL.setIp(player.getUniqueId().toString(), player.getAddress().getAddress().getHostAddress());
@@ -63,11 +65,30 @@ public class JoinQuitListener implements Listener {
             }
         }
 
+        sendCurrentPlayingGamemode(player, true, "§4BlackNerux §8× §e" + player.getServer().getInfo().getName());
     }
 
     @EventHandler
     public void onQuit(PlayerDisconnectEvent event){
         ProxiedPlayer player = event.getPlayer();
+    }
+
+    public static void sendCurrentPlayingGamemode(ProxiedPlayer player, boolean visible, String gamemodeName ) {
+        JsonObject object = new JsonObject();
+        object.addProperty( "show_gamemode", visible ); // Gamemode visible for everyone
+        object.addProperty( "gamemode_name", gamemodeName ); // Name of the current playing gamemode
+
+        // Send to LabyMod using the API
+        LabyModPlugin.getInstance().sendServerMessage(player, "server_gamemode", object );
+    }
+
+    @EventHandler
+    public void onSwitch(ServerSwitchEvent event){
+        ProxiedPlayer player = event.getPlayer();
+        CloudPlayer cloudPlayer = CloudAPI.getInstance().getOnlinePlayer(player.getUniqueId());
+
+        sendCurrentPlayingGamemode(player, true, "§4BlackNeruxNET §8× §e" + cloudPlayer.getServer());
+
     }
 
 

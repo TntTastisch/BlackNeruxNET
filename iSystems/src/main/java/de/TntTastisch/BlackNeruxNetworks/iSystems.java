@@ -136,31 +136,6 @@ public class iSystems extends JavaPlugin implements Listener {
         }
     }
 
-    public static void sendCurrentPlayingGamemode(Player p, boolean visible, String gamemodeName ) {
-        JsonObject object = new JsonObject();
-        object.addProperty( "show_gamemode", visible ); // Gamemode visible for everyone
-        object.addProperty( "gamemode_name", gamemodeName ); // Name of the current playing gamemode
-
-        // Send to LabyMod using the API
-        LabyModPlugin.getInstance().sendServerMessage(p, "server_gamemode", object );
-    }
-
-
-    @EventHandler
-    public void onJoin(PlayerJoinEvent event){
-        final Player player = event.getPlayer();
-        final CloudPlayer cloudPlayer = CloudAPI.getInstance().getOnlinePlayer(player.getUniqueId());
-
-        Bukkit.getScheduler().runTaskLater(this, new Runnable() {
-            @Override
-            public void run() {
-                sendCurrentPlayingGamemode(player, true, "§4§lBlackNeruxNET §8× §e§l" + cloudPlayer.getServer().toString());
-            }
-        }, 20L);
-
-
-    }
-
     @EventHandler
     public void onProcess(PlayerCommandPreprocessEvent event){
         Player player = event.getPlayer();
