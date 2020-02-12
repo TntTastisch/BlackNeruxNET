@@ -11,7 +11,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/LobbySystem/LobbySystem.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LobbySystem/LobbySystem.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/GadgetListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/GadgetListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/listener/GadgetListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/listener/GadgetListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/ShieldListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/ShieldListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

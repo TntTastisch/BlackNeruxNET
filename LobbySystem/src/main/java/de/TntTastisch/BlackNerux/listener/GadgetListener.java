@@ -333,7 +333,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.HAPPY_VILLAGER, 600);
+                            location.getWorld().playEffect(location, Effect.HAPPY_VILLAGER, 600);
                         }
                     });
                     villager.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -389,7 +389,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.WATERDRIP, 600);
+                            location.getWorld().playEffect(location, Effect.WATERDRIP, 600);
                         }
                     });
                     wasser.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -446,7 +446,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.LAVADRIP, 600);
+                            location.getWorld().playEffect(location, Effect.LAVADRIP, 600);
                         }
                     });
                     lava.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -502,7 +502,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.FIREWORKS_SPARK, 600);
+                            location.getWorld().playEffect(location, Effect.FIREWORKS_SPARK, 600);
                         }
                     });
                     feuerwerk.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -558,7 +558,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.ENDER_SIGNAL, 600);
+                            location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 600);
                         }
                     });
                     enderman.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -614,7 +614,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.HEART, 600);
+                            location.getWorld().playEffect(location, Effect.HEART, 600);
                         }
                     });
                     herz.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -671,7 +671,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.LAVA_POP, 600);
+                            location.getWorld().playEffect(location, Effect.LAVA_POP, 600);
                         }
                     });
                     feuer.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -727,7 +727,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.SNOWBALL_BREAK, 600);
+                            location.getWorld().playEffect(location, Effect.SNOWBALL_BREAK, 600);
                         }
                     });
                     schnee.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -780,7 +780,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.SLIME, 600);
+                            location.getWorld().playEffect(location, Effect.SLIME, 600);
                         }
                     });
                     schleim.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -836,7 +836,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.NOTE, 600);
+                            location.getWorld().playEffect(location, Effect.NOTE, 600);
                         }
                     });
                     noten.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -892,7 +892,7 @@ public class GadgetListener implements Listener {
 
                         public void run() {
                             Location location = player.getLocation();
-                            player.playEffect(location, Effect.WITCH_MAGIC, 600);
+                            location.getWorld().playEffect(location, Effect.WITCH_MAGIC, 600);
                         }
                     });
                     verzaubert.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);

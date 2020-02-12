@@ -4,6 +4,7 @@ import de.TntTastisch.BlackNerux.LobbySystem;
 import de.TntTastisch.BlackNerux.systems.Data;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.PlayerInventory;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -52,7 +53,7 @@ public class ShieldListener implements Listener {
                                 double x = Math.cos(angle) * ratio * radius;
                                 double z = Math.sin(angle) * ratio * radius;
                                 location.add(x, 0, z);
-                                player.playEffect(location, particle, 600);
+                                location.getWorld().playEffect(location, particle, 600);
                                 location.subtract(x, 0, z);
                             }
                         }

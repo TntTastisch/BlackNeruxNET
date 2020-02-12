@@ -109,7 +109,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.HAPPY_VILLAGER, 600);
+                    location.getWorld().playEffect(location, Effect.HAPPY_VILLAGER, 600);
                 }
             });
             GadgetListener.villager.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -118,7 +118,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.WATERDRIP, 600);
+                    location.getWorld().playEffect(location, Effect.WATERDRIP, 600);
                 }
             });
             GadgetListener.wasser.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -127,7 +127,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.LAVADRIP, 600);
+                    location.getWorld().playEffect(location, Effect.LAVADRIP, 600);
                 }
             });
             GadgetListener.lava.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -136,7 +136,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.FIREWORKS_SPARK, 600);
+                    location.getWorld().playEffect(location, Effect.FIREWORKS_SPARK, 600);
                 }
             });
             GadgetListener.feuerwerk.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -145,7 +145,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.ENDER_SIGNAL, 600);
+                    location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 600);
                 }
             });
             GadgetListener.enderman.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -154,7 +154,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.HEART, 600);
+                    location.getWorld().playEffect(location, Effect.HEART, 600);
                 }
             });
             GadgetListener.herz.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -163,7 +163,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.LAVA_POP, 600);
+                    location.getWorld().playEffect(location, Effect.LAVA_POP, 600);
                 }
             });
             GadgetListener.feuer.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -172,7 +172,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.SNOWBALL_BREAK, 600);
+                    location.getWorld().playEffect(location, Effect.SNOWBALL_BREAK, 600);
                 }
             });
             GadgetListener.schnee.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -181,7 +181,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.SLIME, 600);
+                    location.getWorld().playEffect(location, Effect.SLIME, 600);
                 }
             });
             GadgetListener.schleim.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -190,7 +190,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.NOTE, 600);
+                    location.getWorld().playEffect(location, Effect.NOTE, 600);
                 }
             });
             GadgetListener.noten.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
@@ -199,7 +199,7 @@ public class JoinQuitListener implements Listener {
 
                 public void run() {
                     Location location = player.getLocation();
-                    player.playEffect(location, Effect.WITCH_MAGIC, 600);
+                    location.getWorld().playEffect(location, Effect.WITCH_MAGIC, 600);
                 }
             });
             GadgetListener.verzaubert.get(player).runTaskTimer(LobbySystem.getPlugin(LobbySystem.class), 1L, 1L);
