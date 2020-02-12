@@ -2,10 +2,7 @@ package de.TntTastisch.BlackNerux;
 
 import de.TntTastisch.BlackNerux.commands.ETD_CMD;
 import de.TntTastisch.BlackNerux.commands.Start_CMD;
-import de.TntTastisch.BlackNerux.listener.BuildListener;
-import de.TntTastisch.BlackNerux.listener.DamageListener;
-import de.TntTastisch.BlackNerux.listener.JoinQuitListener;
-import de.TntTastisch.BlackNerux.listener.LobbyInteract;
+import de.TntTastisch.BlackNerux.listener.*;
 import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.GameState;
 import org.bukkit.Bukkit;
@@ -39,6 +36,7 @@ public class EscapeTheDemons extends JavaPlugin implements Listener {
         manager.registerEvents(new JoinQuitListener(), this);
         manager.registerEvents(new BuildListener(), this);
         manager.registerEvents(new LobbyInteract(), this);
+        manager.registerEvents(new SpectatorCompassListener(), this);
 
         this.getCommand("etd").setExecutor(new ETD_CMD());
         // this.getCommand("forcemap").setExecutor(new ForceMap_CMD());
@@ -95,7 +93,7 @@ public class EscapeTheDemons extends JavaPlugin implements Listener {
         String user = configuration.getString("MySQL.User");
         String password = configuration.getString("MySQL.Password");
 
-        (EscapeTheDemons.mySQL = new MySQL(host,port,database,user,password)).update("CREATE TABLE IF NOT EXISTS EscapeTheDemons(UUID varchar(64), Played varchar(120), Lost varchar(120), Points varchar(120))");
+        (EscapeTheDemons.mySQL = new MySQL(host,port,database,user,password)).update("CREATE TABLE IF NOT EXISTS EscapeTheDemons(UUID varchar(64), Played varchar(120), Lost varchar(120), Points varchar(120), DemonPass varchar(64), PolicePass varchar(64))");
 
     }
 

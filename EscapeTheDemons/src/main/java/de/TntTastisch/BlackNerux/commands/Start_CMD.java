@@ -2,6 +2,7 @@ package de.TntTastisch.BlackNerux.commands;
 
 import de.TntTastisch.BlackNerux.listener.JoinQuitListener;
 import de.TntTastisch.BlackNerux.systems.Data;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,11 +14,15 @@ public class Start_CMD implements CommandExecutor {
             Player player = (Player) commandSender;
 
             if(player.hasPermission("escapethedemons.vip.start")){
-                if(JoinQuitListener.timer != 10){
-                    JoinQuitListener.timer = 10;
-                    player.sendMessage(Data.prefix + "§7Du hast den Lobby Countdown verkürzt!");
-                } else if(JoinQuitListener.timer <= 10){
-                    player.sendMessage(Data.prefix + "§cDas Spiel startet bereits!");
+                if(!Bukkit.getScheduler().isQueued(JoinQuitListener.LobbyTimer)){
+                    player.sendMessage(Data.prefix + "§cWarten auf weitere Spieler...");
+                } else {
+                    if (JoinQuitListener.timer <= 10) {
+                        player.sendMessage(Data.prefix + "§cDas Spiel startet bereits!");
+                    } else {
+                        JoinQuitListener.timer = 10;
+                        player.sendMessage(Data.prefix + "§7Du hast das Spiel §aerfolgreich §7gestartet!");
+                    }
                 }
             } else {
                 player.sendMessage(Data.noPerms);

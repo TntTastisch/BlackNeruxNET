@@ -96,10 +96,80 @@ public class MySQL {
     }
 
 
-    public static void createPlayer(final String UUID, final Player player, final double X, final double Y, final double Z, final float Yaw, final float Pitch, final String World) {
+    public static void createPlayer(final String UUID) {
         if (!playerExists(UUID)) {
-            EscapeTheDemons.mySQL.update("INSERT INTO EscapeTheDemons (UUID, Played, Lost, Points, ) VALUES " +
-                    "('" + UUID + "', '" + X + "', '" + Y + "', '" + Z + "', '" + Yaw + "', '" + Pitch + "', '" + World + "', '0', '0', '0', '0', '0', '0');");
+            EscapeTheDemons.mySQL.update("INSERT INTO EscapeTheDemons (UUID, Played, Lost, Points, DemonPass, PolicePass) VALUES " +
+                    "('" + UUID + "', '0', '0', '0', '0', '0');");
+        }
+    }
+
+    public static Integer getDemonPasses(final String UUID){
+        int i = 0;
+        if (playerExists(UUID)) {
+            try {
+                final ResultSet rs = EscapeTheDemons.mySQL.query("SELECT * FROM EscapeTheDemons WHERE UUID= '" + UUID + "'");
+                if (rs.next()) {
+                    rs.getInt("DemonPass");
+                }
+                i = rs.getInt("DemonPass");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setDemonPasses(String UUID, Integer pass){
+        if (playerExists(UUID)) {
+            EscapeTheDemons.mySQL.update("UPDATE players SET DemonPass= '" + pass + "' WHERE UUID= '" + UUID + "';");
+        }
+    }
+
+    public static void addDemonPasses(String UUID, Integer pass){
+        if (playerExists(UUID)) {
+            setDemonPasses(UUID, getDemonPasses(UUID) + pass);
+        }
+    }
+
+    public static void removeDemonPasses(String UUID, Integer pass){
+        if (playerExists(UUID)) {
+            setDemonPasses(UUID, getDemonPasses(UUID) - pass);
+        }
+    }
+
+    public static Integer getPolicePasses(final String UUID){
+        int i = 0;
+        if (playerExists(UUID)) {
+            try {
+                final ResultSet rs = EscapeTheDemons.mySQL.query("SELECT * FROM EscapeTheDemons WHERE UUID= '" + UUID + "'");
+                if (rs.next()) {
+                    rs.getInt("PolicePass");
+                }
+                i = rs.getInt("PolicePass");
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;
+    }
+
+    public static void setPolicePasses(String UUID, Integer pass){
+        if (playerExists(UUID)) {
+            EscapeTheDemons.mySQL.update("UPDATE players SET PolicePass= '" + pass + "' WHERE UUID= '" + UUID + "';");
+        }
+    }
+
+    public static void addPolicePasses(String UUID, Integer pass){
+        if (playerExists(UUID)) {
+            setDemonPasses(UUID, getDemonPasses(UUID) + pass);
+        }
+    }
+
+    public static void removePolicePasses(String UUID, Integer pass){
+        if (playerExists(UUID)) {
+            setDemonPasses(UUID, getDemonPasses(UUID) - pass);
         }
     }
 

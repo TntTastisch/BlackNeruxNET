@@ -13,6 +13,11 @@ public class Data {
     public static String noPlayer = prefix + "§cYou musst be a player!";
 
     public static ArrayList<Player> ingame = new ArrayList<Player>();
+    public static ArrayList<Player> spectator = new ArrayList<Player>();
+
+    public static ArrayList<Player> demon = new ArrayList<Player>();
+    public static ArrayList<Player> police = new ArrayList<Player>();
+    public static ArrayList<Player> visitor = new ArrayList<Player>();
 
     // final CloudPlayer cloudPlayer = CloudAPI.getInstance().getOnlinePlayer(player.getUniqueId());
     public static void connectPlayer(CloudPlayer cloudPlayer, String server) {

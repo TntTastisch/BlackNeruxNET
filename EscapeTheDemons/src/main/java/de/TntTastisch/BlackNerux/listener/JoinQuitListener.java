@@ -4,6 +4,7 @@ import de.TntTastisch.BlackNerux.EscapeTheDemons;
 import de.TntTastisch.BlackNerux.api.ItemAPI;
 import de.TntTastisch.BlackNerux.api.TitleAPI;
 import de.TntTastisch.BlackNerux.systems.Data;
+import de.TntTastisch.BlackNerux.systems.MySQL;
 import de.TntTastisch.BlackNerux.utils.GameState;
 import de.TntTastisch.BlackNerux.utils.Scoreboard;
 import de.dytanic.cloudnet.api.CloudAPI;
@@ -12,6 +13,7 @@ import de.dytanic.cloudnet.lib.service.ServiceId;
 import org.bukkit.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Damageable;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,6 +39,8 @@ public class JoinQuitListener implements Listener {
     public void onJoin(PlayerJoinEvent event){
         event.setJoinMessage(null);
         final Player player = event.getPlayer();
+
+        MySQL.createPlayer(player.getUniqueId().toString());
 
         if(GameState.getGameState() == GameState.LOBBY){
             player.setGameMode(GameMode.SURVIVAL);
@@ -69,61 +73,97 @@ public class JoinQuitListener implements Listener {
             player.teleport(location);
 
 
-            if(Bukkit.getOnlinePlayers().size() >= 2){
+            if(Bukkit.getOnlinePlayers().size() >= 2) {
 
                 LobbyTimer = Bukkit.getScheduler().scheduleSyncRepeatingTask(EscapeTheDemons.getPlugin(), new Runnable() {
                     public void run() {
 
-                        if(timer == 60 || timer == 45 || timer == 30 || timer == 15){
+                        if (timer == 60 || timer == 45 || timer == 30 || timer == 15) {
 
                             TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "");
-                            for(Player all : Bukkit.getOnlinePlayers()){
+                            for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.LEVEL_UP, 120, 120);
                             }
 
-                        } else if(timer == 10){
+                        } else if (timer == 10) {
 
                             TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "§c" + playedGame);
-                            for(Player all : Bukkit.getOnlinePlayers()){
+                            for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.NOTE_PLING, 120, 120);
                             }
 
-                        } else if(timer == 5 || timer == 4 || timer == 3 || timer == 2){
+                        } else if (timer == 5 || timer == 4 || timer == 3 || timer == 2) {
                             TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "");
-                            for(Player all : Bukkit.getOnlinePlayers()){
+                            for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.NOTE_BASS_DRUM, 120, 120);
                             }
-                        } else if(timer == 1){
+                        } else if (timer == 1) {
                             TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "");
-                            for(Player all : Bukkit.getOnlinePlayers()){
+                            for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.NOTE_BASS_DRUM, 120, 120);
                             }
-                        } else if(timer == 0){
+                        } else if (timer == 0) {
+                            player.getInventory().clear();
                             GameState.setGameState(GameState.INGAME);
+                            Bukkit.getScheduler().cancelTask(playerSchedule);
+                            Bukkit.getScheduler().cancelTask(LobbyTimer);
+
+                            File file = new File("plugins/EscapeTheDemons/games/" + playedGame + "/gameLocations.yml");
+                            YamlConfiguration fileCFG = YamlConfiguration.loadConfiguration(file);
 
 
+                            for (Player all : Bukkit.getOnlinePlayers()) {
+                                if (!Data.demon.contains(all)) {
+                                    Location location = player.getLocation();
+                                    location.setX(fileCFG.getDouble("Spawns.Demon.X"));
+                                    location.setY(fileCFG.getDouble("Spawns.Demon.Y"));
+                                    location.setZ(fileCFG.getDouble("Spawns.Demon.Z"));
+                                    location.setYaw((float) fileCFG.getDouble("Spawns.Demon.Yaw"));
+                                    location.setPitch((float) fileCFG.getDouble("Spawns.Demon.Pitch"));
+                                    location.setWorld(Bukkit.getWorld(fileCFG.getString("Spawns.Demon.World")));
+                                    player.teleport(location);
+                                } else if (!Data.police.contains(all)) {
+                                    Location location = player.getLocation();
+                                    location.setX(fileCFG.getDouble("Spawns.Police.X"));
+                                    location.setY(fileCFG.getDouble("Spawns.Police.Y"));
+                                    location.setZ(fileCFG.getDouble("Spawns.Police.Z"));
+                                    location.setYaw((float) fileCFG.getDouble("Spawns.Police.Yaw"));
+                                    location.setPitch((float) fileCFG.getDouble("Spawns.Police.Pitch"));
+                                    location.setWorld(Bukkit.getWorld(fileCFG.getString("Spawns.Police.World")));
+                                    player.teleport(location);
+                                } else if (!Data.visitor.contains(all)) {
+                                    Location location = player.getLocation();
+                                    location.setX(fileCFG.getDouble("Spawns.Visitor.X"));
+                                    location.setY(fileCFG.getDouble("Spawns.Visitor.Y"));
+                                    location.setZ(fileCFG.getDouble("Spawns.Visitor.Z"));
+                                    location.setYaw((float) fileCFG.getDouble("Spawns.Visitor.Yaw"));
+                                    location.setPitch((float) fileCFG.getDouble("Spawns.Visitor.Pitch"));
+                                    location.setWorld(Bukkit.getWorld(fileCFG.getString("Spawns.Visitor.World")));
+                                    player.teleport(location);
+                                }
+                            }
                         }
 
-                        for(Player all : Bukkit.getOnlinePlayers()){
+                        for (Player all : Bukkit.getOnlinePlayers()) {
                             all.setLevel(timer);
                         }
                         timer--;
                     }
-                },1, 20L);
+                }, 1, 20L);
 
             }
-
-
-
         } else if(GameState.getGameState() == GameState.INGAME){
-            Bukkit.getScheduler().cancelTask(playerSchedule);
-            Bukkit.getScheduler().cancelTask(LobbyTimer);
-            player.setGameMode(GameMode.SURVIVAL);
+            Data.spectator.add(player);
             player.getInventory().clear();
-            player.setLevel(0);
-            player.setHealth(20);
-            player.setFoodLevel(20);
 
+            player.setGameMode(GameMode.SURVIVAL);
+
+            for(Player all : Bukkit.getOnlinePlayers()){
+                all.hidePlayer(player);
+            }
+
+            player.getInventory().setItem(0, new ItemAPI(Material.COMPASS).setDisplayname("§8➦ §7Spieler").create());
+            player.getInventory().setItem(8, ItemAPI.SkullBuilder("§8➦ §cVerlassen", "MHF_ArrowRight"));
 
         } else if(GameState.getGameState() == GameState.END){
 
@@ -148,9 +188,17 @@ public class JoinQuitListener implements Listener {
                 }
             }, 20L);
 
-            if(Bukkit.getOnlinePlayers().size() <= playerCount){
-                Bukkit.getScheduler().cancelTask(LobbyTimer);
-                Bukkit.broadcastMessage(Data.prefix + "§cDer Countdown wurde abgebrochen, weil zu wenig Spieler in der Lobby sind!");
+            if(Bukkit.getScheduler().isQueued(LobbyTimer)) {
+                if (Bukkit.getOnlinePlayers().size() <= playerCount) {
+                    Bukkit.getScheduler().cancelTask(LobbyTimer);
+                    JoinQuitListener.timer = 60;
+
+                    for(Player all : Bukkit.getOnlinePlayers()){
+                        all.setLevel(timer);
+                    }
+
+                    Bukkit.broadcastMessage(Data.prefix + "§cDer Countdown wurde abgebrochen, weil zu wenig Spieler in der Lobby sind!");
+                }
             }
 
 
@@ -199,13 +247,7 @@ public class JoinQuitListener implements Listener {
         File files = new File("plugins/EscapeTheDemons/games");
 
         ArrayList<String> list = new ArrayList<String>();
-
-        for(File file : files.listFiles()){
-            list.add(String.valueOf(file));
-        }
-
-        int i = (int) ((Math.random()) * list.size());
-        playedGame = list.get(i);
+        playedGame = "Castle";
     }
 
 }

@@ -82,7 +82,7 @@ public class ETD_CMD implements CommandExecutor {
                             if(!directory.exists()){
                                 player.sendMessage(Data.prefix + "§cDiese Map existiert nicht!");
                             } else {
-                                File file = new File("plugins/EscapeTheDemons/games/" + gameName + "/gameLocations.yml");
+                                File file = new File("plugins/EscapeTheDemons/games/" + gameName);
                                 YamlConfiguration fileCFG = YamlConfiguration.loadConfiguration(file);
 
                                 if(!file.exists()){
