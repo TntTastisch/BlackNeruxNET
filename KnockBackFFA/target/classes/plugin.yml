@@ -1,0 +1,8 @@
+name: KnockBackFFA
+version: 1.0-SNAPSHOT
+author: TeeJan
+main: de.TeeJan.BlackNerux.KnockBackFFA
+commands:
+  setspawn:
+  stats:
+  coins:

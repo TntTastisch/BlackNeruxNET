@@ -30,6 +30,7 @@ public class ETD_CMD implements CommandExecutor {
                     player.sendMessage("§e/etd setLobby <Name>");
                     player.sendMessage("§e/etd setVisitorSpawn <Name>");
                     player.sendMessage("§e/etd setDemonSpawn <Name>");
+                    player.sendMessage("§e/etd setSpectatorSpawn <Name>");
                     player.sendMessage("§e/etd setPoliceSpawn <Name>");
                     player.sendMessage("§8§m----------§r §4§lBLACKNERUX NETWORKS §8§m----------");
 
@@ -235,6 +236,48 @@ public class ETD_CMD implements CommandExecutor {
                                 }
 
                                 player.sendMessage(Data.prefix + "§7Du hast den Besucher-Spawn für §e" + gameName + " §aerfolgreich §7gesetzt.");
+                            }
+                        }
+                    }
+
+                    if(strings[0].equalsIgnoreCase("setSpectatorSpawn")){
+                        String gameName = strings[1];
+
+                        if(gameName.equalsIgnoreCase(null) || gameName.equalsIgnoreCase(" ") || gameName.equalsIgnoreCase("")){
+                            player.sendMessage(Data.prefix + "§cDu musst ein Spielname angeben!");
+                        } else {
+                            File directory = new File("plugins/EscapeTheDemons/games/" + gameName);
+
+                            if(!directory.exists()){
+                                player.sendMessage(Data.prefix + "§cDiese Map existiert nicht!");
+                            } else {
+                                File file = new File("plugins/EscapeTheDemons/games/" + gameName + "/gameLocations.yml");
+                                YamlConfiguration fileCFG = YamlConfiguration.loadConfiguration(file);
+
+                                if(!file.exists()){
+                                    try {
+                                        file.createNewFile();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                Location location = player.getLocation();
+
+                                fileCFG.set("Spawns.Spectator.X", location.getX());
+                                fileCFG.set("Spawns.Spectator.Y", location.getY());
+                                fileCFG.set("Spawns.Spectator.Z", location.getZ());
+                                fileCFG.set("Spawns.Spectator.Yaw", location.getYaw());
+                                fileCFG.set("Spawns.Spectator.Pitch", location.getPitch());
+                                fileCFG.set("Spawns.Spectator.World", location.getWorld().getName());
+
+                                try {
+                                    fileCFG.save(file);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                player.sendMessage(Data.prefix + "§7Du hast den Spectator-Spawn für §e" + gameName + " §aerfolgreich §7gesetzt.");
                             }
                         }
                     }

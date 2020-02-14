@@ -326,4 +326,43 @@ public class LocationManager {
         }
 
     }
+
+    public static void setKnockbackFFA(Player player){
+        org.bukkit.Location location = player.getLocation();
+
+
+        locationcfg.set("KnockbackFFA.X", location.getX());
+        locationcfg.set("KnockbackFFA.Y", location.getY());
+        locationcfg.set("KnockbackFFA.Z", location.getZ());
+        locationcfg.set("KnockbackFFA.Yaw", location.getYaw());
+        locationcfg.set("KnockbackFFA.Pitch", location.getPitch());
+        locationcfg.set("KnockbackFFA.World", location.getWorld().getName());
+
+        try {
+            locationcfg.save(locations);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void getKnockbackFFA(Player player){
+        try {
+            Location location = player.getLocation();
+
+            location.setX(locationcfg.getDouble("KnockbackFFA.X"));
+            location.setY(locationcfg.getDouble("KnockbackFFA.Y"));
+            location.setZ(locationcfg.getDouble("KnockbackFFA.Z"));
+            location.setYaw((float) locationcfg.getDouble("KnockbackFFA.Yaw"));
+            location.setPitch((float) locationcfg.getDouble("KnockbackFFA.Pitch"));
+            location.setWorld(Bukkit.getWorld(locationcfg.getString("KnockbackFFA.World")));
+
+            player.teleport(location);
+            player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT,1,1);
+            player.playEffect(player.getLocation(), Effect.ENDER_SIGNAL, 600);
+
+        } catch (Exception e){
+            player.sendMessage(Data.prefix + "§4§lACHTUNG! §c§lDieser Spielmodus ist noch in Wartungsarbeiten!");
+        }
+
+    }
 }

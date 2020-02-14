@@ -79,9 +79,11 @@ public class LobbyInteract implements Listener {
                     } else {
                         if (JoinQuitListener.timer <= 10) {
                             player.sendMessage(Data.prefix + "§cDas Spiel startet bereits!");
+                            event.getView().close();
                         } else {
                             JoinQuitListener.timer = 10;
                             player.sendMessage(Data.prefix + "§7Du hast das Spiel §aerfolgreich §7gestartet!");
+                            event.getView().close();
                         }
                     }
                 } else {

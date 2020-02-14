@@ -18,7 +18,7 @@ public class Set_CMD implements CommandExecutor {
 
                 if(strings.length == 0) {
 
-                    player.sendMessage(Data.prefix + "§7Benutze §8× §e/set <Spawn, F13, WoK, LaserTag, EscapeTheDemons, FiveNightsAtMinecraft, OneHit>");
+                    player.sendMessage(Data.prefix + "§7Benutze §8× §e/set <Spawn, F13, WoK, LaserTag, EscapeTheDemons, FiveNightsAtMinecraft, OneHit, KnockbackFFA>");
 
                 } else if(strings.length == 1){
 
@@ -55,6 +55,11 @@ public class Set_CMD implements CommandExecutor {
                     if(strings[0].equalsIgnoreCase("FiveNightsAtMinecraft")){
                         LocationManager.setFiveNightsAtMinecraft(player);
                         player.sendMessage(Data.prefix + "§7Du hast den §6Spawn von §bFiveNightsAtMinecraft §aerfolgreich §7gesetzt");
+                    }
+
+                    if(strings[0].equalsIgnoreCase("KnockbackFFA")){
+                        LocationManager.setKnockbackFFA(player);
+                        player.sendMessage(Data.prefix + "§7Du hast den §6Spawn von §bKnockbackFFA §aerfolgreich §7gesetzt");
                     }
                 }
 

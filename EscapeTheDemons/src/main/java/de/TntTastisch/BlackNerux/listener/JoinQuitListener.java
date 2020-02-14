@@ -80,27 +80,24 @@ public class JoinQuitListener implements Listener {
 
                         if (timer == 60 || timer == 45 || timer == 30 || timer == 15) {
 
-                            TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "");
+
                             for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.LEVEL_UP, 120, 120);
+                                TitleAPI.sendFullTitle(all, 5, 15, 5, "§e" + timer, "");
                             }
 
                         } else if (timer == 10) {
 
-                            TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "§c" + playedGame);
+
                             for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.NOTE_PLING, 120, 120);
+                                TitleAPI.sendFullTitle(all, 5, 15, 5, "§e" + timer, "§c" + playedGame);
                             }
 
-                        } else if (timer == 5 || timer == 4 || timer == 3 || timer == 2) {
-                            TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "");
+                        } else if (timer == 5 || timer == 4 || timer == 3 || timer == 2 || timer == 1) {
                             for (Player all : Bukkit.getOnlinePlayers()) {
                                 all.playSound(player.getLocation(), Sound.NOTE_BASS_DRUM, 120, 120);
-                            }
-                        } else if (timer == 1) {
-                            TitleAPI.sendFullTitle(player, 5, 15, 5, "§e" + timer, "");
-                            for (Player all : Bukkit.getOnlinePlayers()) {
-                                all.playSound(player.getLocation(), Sound.NOTE_BASS_DRUM, 120, 120);
+                                TitleAPI.sendFullTitle(all, 5, 15, 5, "§e" + timer, "");
                             }
                         } else if (timer == 0) {
                             player.getInventory().clear();
@@ -155,8 +152,23 @@ public class JoinQuitListener implements Listener {
         } else if(GameState.getGameState() == GameState.INGAME){
             Data.spectator.add(player);
             player.getInventory().clear();
+            player.setAllowFlight(true);
+
 
             player.setGameMode(GameMode.SURVIVAL);
+
+            File file = new File("plugins/EscapeTheDemons/games/" + playedGame + "/gameLocations.yml");
+            YamlConfiguration fileCFG = YamlConfiguration.loadConfiguration(file);
+
+            Location location = player.getLocation();
+            location.setX(fileCFG.getDouble("Spawns.Spectator.X"));
+            location.setY(fileCFG.getDouble("Spawns.Spectator.Y"));
+            location.setZ(fileCFG.getDouble("Spawns.Spectator.Z"));
+            location.setYaw((float) fileCFG.getDouble("Spawns.Spectator.Yaw"));
+            location.setPitch((float) fileCFG.getDouble("Spawns.Spectator.Pitch"));
+            location.setWorld(Bukkit.getWorld(fileCFG.getString("Spawns.Spectator.World")));
+            player.teleport(location);
+
 
             for(Player all : Bukkit.getOnlinePlayers()){
                 all.hidePlayer(player);
@@ -164,8 +176,6 @@ public class JoinQuitListener implements Listener {
 
             player.getInventory().setItem(0, new ItemAPI(Material.COMPASS).setDisplayname("§8➦ §7Spieler").create());
             player.getInventory().setItem(8, ItemAPI.SkullBuilder("§8➦ §cVerlassen", "MHF_ArrowRight"));
-
-        } else if(GameState.getGameState() == GameState.END){
 
         }
 
@@ -207,6 +217,8 @@ public class JoinQuitListener implements Listener {
             if(Data.ingame.contains(player)){
                 Bukkit.broadcastMessage(Data.prefix + "§7Der Spieler §6" + Data.getPlayerPrefix(player) + " §7hat das Spiel §cverlassen§7.");
             }
+
+            Data.spectator.remove(player);
 
         } else if(GameState.getGameState() == GameState.END){
             player.getInventory().clear();

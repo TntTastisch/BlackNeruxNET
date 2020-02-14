@@ -7,10 +7,8 @@ import de.TntTastisch.BlackNerux.utils.LocationManager;
 import de.dytanic.cloudnet.api.CloudAPI;
 import de.dytanic.cloudnet.lib.player.CloudPlayer;
 import de.dytanic.cloudnet.lib.server.info.ServerInfo;
-import org.bukkit.Bukkit;
-import org.bukkit.Effect;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,6 +16,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import javax.xml.ws.WebEndpoint;
 import java.util.Collection;
@@ -41,6 +40,7 @@ public class NavigatorListener implements Listener {
                 inventory.setItem(8 , ItemAPI.SkullBuilder("§8➦ §bWar Of Kingdom", "Flaversum"));
 
                 inventory.setItem(3 , new ItemAPI(Material.DIAMOND_SWORD).setDisplayname("§8➦ §5OneHit").create());
+                inventory.setItem(5, new ItemAPI(Material.STICK).addUnsafeEnchantment(Enchantment.DURABILITY,0).setDisplayname("§8➦ §eKnockbackFFA").create());
 
                 inventory.setItem(11 , new ItemAPI(Material.IRON_AXE).setDisplayname("§8➦ §eCityBuild").create());
                 inventory.setItem(13 , new ItemAPI(Material.DIAMOND).setDisplayname("§8➦ §6Spawn").create());
@@ -81,6 +81,11 @@ public class NavigatorListener implements Listener {
 
             if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §bWar Of Kingdom")){
                 LocationManager.getWoK(player);
+                event.getView().close();
+            }
+
+            if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8➦ §eKnockbackFFA")){
+                LocationManager.getKnockbackFFA(player);
                 event.getView().close();
             }
 
