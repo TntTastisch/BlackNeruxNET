@@ -7,84 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2016432-5ce0-4dc6-9bf1-b7293ce13850" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/artifacts/KnockbackFFA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/out/KnockbackFFA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/out/components/Multiverse-Core-2.5.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/out/components/worldedit-bukkit-6.1.7.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/out/components/worldguard-6.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/KnockBackFFA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/api/ItemAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/api/TitleAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/api/TitleSendEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/commands/Coins_CMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/commands/SetSpawn_CMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/commands/Stats_CMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/listeners/DeathListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/listeners/InventoryClickListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/listeners/JoinQuitListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/listeners/NoBuildListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/listeners/NoDamageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/listeners/WeatherListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/systems/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/systems/MySQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/utils/PlayerInvetory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/utils/Scoreboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/java/de/TeeJan/BlackNerux/utils/SpawnConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/META-INF/KnockBackFFA.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/KnockBackFFA.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/api/ItemAPI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/api/TitleAPI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/api/TitleSendEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/commands/Coins_CMD.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/commands/SetSpawn_CMD.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/commands/Stats_CMD.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/DeathListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/InventoryClickListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/JoinQuitListener$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/JoinQuitListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/NoBuildListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/NoDamageListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/listeners/WeatherListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/systems/Data.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/systems/MySQL.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/utils/PlayerInvetory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/utils/Scoreboard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/de/TeeJan/BlackNerux/utils/SpawnConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KnockBackFFA/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/out/artifacts/EscapeTheDemons/EscapeTheDemons.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/out/artifacts/EscapeTheDemons/EscapeTheDemons.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/commands/ETD_CMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/commands/ETD_CMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/DamageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/DamageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/LobbyInteract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/LobbyInteract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/SpectatorCompassListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/src/main/java/de/TntTastisch/BlackNerux/listener/SpectatorCompassListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/commands/ETD_CMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/commands/ETD_CMD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/DamageListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/DamageListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/JoinQuitListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/LobbyInteract.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/LobbyInteract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/SpectatorCompassListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EscapeTheDemons/target/classes/de/TntTastisch/BlackNerux/listener/SpectatorCompassListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../KnockBackFFA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../KnockBackFFA/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/LobbySystem/LobbySystem.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LobbySystem/LobbySystem.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Set_CMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Set_CMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/NavigatorListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/NavigatorListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/utils/LocationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/utils/LocationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/commands/Set_CMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/commands/Set_CMD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/listener/NavigatorListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/listener/NavigatorListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/listener/NavigatorListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/listener/NavigatorListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/utils/LocationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/utils/LocationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listener/JoinQuitListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
