@@ -15,6 +15,7 @@ public class PlayerInventory {
 
 
     public static void playerInventory(Player player){
+        CloudPlayer cloudPlayer = CloudAPI.getInstance().getOnlinePlayer(player.getUniqueId());
 
         player.getInventory().setItem(0, new ItemAPI(Material.BREWING_STAND_ITEM).setDisplayname("§8➦ §3§lNavigator").create());
 
@@ -52,10 +53,8 @@ public class PlayerInventory {
 
             for(final ServerInfo serverInfo : silentLobby) {
                 if(serverInfo.isOnline()) {
-                    if(!player.getServer().getServerId().equalsIgnoreCase(serverInfo.getServiceId().getServerId())){
+                    if(!cloudPlayer.getServer().startsWith(serverInfo.getServiceId().getServerId())) {
                         player.getInventory().setItem(23, new ItemAPI(Material.TNT).setDisplayname("§8➦ §4§lSilentlobby").create());
-                    } else {
-                        player.getInventory().setItem(23, new ItemAPI(Material.TNT).setDisplayname("§8➦ §4SLOBBY FEHLER").create());
                     }
                 }
             }

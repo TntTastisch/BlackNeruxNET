@@ -4,7 +4,6 @@ import de.TntTastisch.AronixDE.OnlineInstance;
 import de.TntTastisch.BlackNerux.CoinsAPI;
 import de.TntTastisch.BlackNerux.LobbySystem;
 import de.TntTastisch.BlackNerux.systems.Data;
-import me.clip.placeholderapi.PlaceholderAPI;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;

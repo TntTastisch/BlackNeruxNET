@@ -18,6 +18,9 @@ public class JoinME_CMD extends Command {
 
             if(player.hasPermission("system.vip.joinme")){
 
+                if(player.hasPermission("system.vip.joinme.bypass.team")){
+
+                }
 
 
             } else {

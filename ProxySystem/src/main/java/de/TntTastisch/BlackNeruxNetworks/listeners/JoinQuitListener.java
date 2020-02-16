@@ -32,8 +32,6 @@ public class JoinQuitListener implements Listener {
         ProxiedPlayer player = event.getPlayer();
 
         MySQL.createPlayer(player);
-
-
         if(MySQL.getIp(player.getUniqueId().toString()) != player.getAddress().getAddress().getHostAddress()) {
             MySQL.setIp(player.getUniqueId().toString(), player.getAddress().getAddress().getHostAddress());
         }
@@ -65,7 +63,7 @@ public class JoinQuitListener implements Listener {
             }
         }
 
-        sendCurrentPlayingGamemode(player, true, "§4BlackNerux §8× §e" + player.getServer().getInfo().getName());
+        // sendCurrentPlayingGamemode(player, true, "§4BlackNerux §8× §e" + player.getServer().getInfo().getName());
     }
 
     @EventHandler
@@ -87,7 +85,7 @@ public class JoinQuitListener implements Listener {
         ProxiedPlayer player = event.getPlayer();
         CloudPlayer cloudPlayer = CloudAPI.getInstance().getOnlinePlayer(player.getUniqueId());
 
-        sendCurrentPlayingGamemode(player, true, "§4BlackNeruxNET §8× §e" + cloudPlayer.getServer());
+        sendCurrentPlayingGamemode(player, true, "§4BlackNeruxNET §8× §e" + player.getServer().getInfo().getName());
 
     }
 

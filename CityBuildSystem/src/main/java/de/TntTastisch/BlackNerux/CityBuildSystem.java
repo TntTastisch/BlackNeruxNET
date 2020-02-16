@@ -46,6 +46,7 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         manager.registerEvents(new DeathListener(), this);
         manager.registerEvents(new SocialSpyListener(), this);
         manager.registerEvents(new JobsListener(), this);
+        manager.registerEvents(new ChatListener(), this);
 
         ScoreboardManager.updateScoreboard();
 

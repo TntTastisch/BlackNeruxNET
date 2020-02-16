@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LobbyProtect">
+    <output-path>$PROJECT_DIR$/out/artifacts/LobbyProtect</output-path>
+    <root id="archive" name="LobbyProtect.jar">
+      <element id="module-output" name="LobbyProtection" />
+    </root>
+  </artifact>
+</component>
