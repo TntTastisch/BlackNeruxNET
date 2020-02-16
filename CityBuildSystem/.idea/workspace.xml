@@ -6,37 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15393ebf-6a0b-4e9b-8615-758532e44b62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/listeners/ChatListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/.idea/artifacts/LobbyProtect.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/LobbyProtection.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/src/main/java/de/TntTastisch/BlackNerux/LobbyProtect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LobbyProtection/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/CityBuild-System.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/CityBuild-System.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/CityBuildSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/CityBuildSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/CityBuildSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/de/TntTastisch/BlackNerux/CityBuildSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/out/artifacts/LobbySystem/LobbySystem.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/out/artifacts/LobbySystem/LobbySystem.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/utils/PlayerInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/utils/PlayerInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/utils/ScoreboardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/src/main/java/de/TntTastisch/BlackNerux/utils/ScoreboardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/target/classes/de/TntTastisch/BlackNerux/utils/PlayerInventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/target/classes/de/TntTastisch/BlackNerux/utils/PlayerInventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LobbySystem/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../LobbySystem/target/classes/de/TntTastisch/BlackNerux/utils/ScoreboardManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProxySystem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProxySystem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProxySystem/out/ProxySystem.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ProxySystem/out/ProxySystem.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProxySystem/src/main/java/de/TntTastisch/BlackNeruxNetworks/commands/JoinME_CMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProxySystem/src/main/java/de/TntTastisch/BlackNeruxNetworks/commands/JoinME_CMD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProxySystem/src/main/java/de/TntTastisch/BlackNeruxNetworks/listeners/JoinQuitListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProxySystem/src/main/java/de/TntTastisch/BlackNeruxNetworks/listeners/JoinQuitListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProxySystem/target/classes/de/TntTastisch/BlackNeruxNetworks/listeners/JoinQuitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProxySystem/target/classes/de/TntTastisch/BlackNeruxNetworks/listeners/JoinQuitListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iSystems/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iSystems/out/artifacts/iSystems/iSystems.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/out/artifacts/iSystems/iSystems.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iSystems/src/main/java/de/TntTastisch/BlackNeruxNetworks/iSystems.java" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/src/main/java/de/TntTastisch/BlackNeruxNetworks/iSystems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iSystems/target/classes/de/TntTastisch/BlackNeruxNetworks/iSystems.class" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/target/classes/de/TntTastisch/BlackNeruxNetworks/iSystems.class" afterDir="false" />
-    </list>
+    <list default="true" id="15393ebf-6a0b-4e9b-8615-758532e44b62" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowStructure.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../6767Army/LobbySystem" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -112,10 +82,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580756698811" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1581882353368">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1581889236450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581882353368" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581889236450" />
     <state x="440" y="95" key="SettingsEditor" timestamp="1581025401537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
