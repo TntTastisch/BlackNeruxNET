@@ -60,7 +60,6 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("feed").setExecutor(new Feed_CMD());
         this.getCommand("jobs").setExecutor(new Job_CMD());
         this.getCommand("heal").setExecutor(new Heal_CMD());
-        this.getCommand("enderchest").setExecutor(new Enderchest_CMD());
         // Location
         this.getCommand("setspawn").setExecutor(new SetSpawn_CMD());
         this.getCommand("spawn").setExecutor(new Spawn_CMD());

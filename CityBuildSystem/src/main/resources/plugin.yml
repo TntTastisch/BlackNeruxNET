@@ -35,9 +35,6 @@ commands:
   jobs:
     aliases:
       - job
-  enderchest:
-    aliases:
-      - ec
   ptime:
   day:
   night:

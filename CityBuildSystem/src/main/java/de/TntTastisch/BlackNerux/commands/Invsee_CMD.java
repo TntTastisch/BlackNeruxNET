@@ -25,7 +25,7 @@ public class Invsee_CMD implements CommandExecutor {
                         if (target != player) {
 
                             player.openInventory(target.getInventory());
-                            player.sendMessage(Data.prefix + "§7Du hast das §6Inventar §7von §6" + Data.getPlayerPrefix(target) + " §ageöffnet7.");
+                            player.sendMessage(Data.prefix + "§7Du hast das §6Inventar §7von §6" + Data.getPlayerPrefix(target) + " §ageöffnet§7.");
 
                         } else {
                             player.sendMessage(Data.prefix + "§cDu kannst nicht dein eigenes Iventar öffnen!");
