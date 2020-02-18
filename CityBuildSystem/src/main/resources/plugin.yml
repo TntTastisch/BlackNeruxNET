@@ -42,3 +42,9 @@ commands:
   invsee:
   money:
   pay:
+  enchant:
+  give:
+    aliases:
+      - i
+  repair:
+  unbreakable:

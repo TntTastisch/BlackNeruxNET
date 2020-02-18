@@ -56,6 +56,11 @@ public class CityBuildSystem extends JavaPlugin implements Listener {
         this.getCommand("fly").setExecutor(new Fly_CMD());
         this.getCommand("sign").setExecutor(new Sign_CMD());
         this.getCommand("invsee").setExecutor(new Invsee_CMD());
+        // Administrator Features
+        this.getCommand("enchant").setExecutor(new Enchant_CMD());
+        this.getCommand("repair").setExecutor(new Repair_CMD());
+        this.getCommand("unbreakable").setExecutor(new Unbreakable_CMD());
+        this.getCommand("give").setExecutor(new Give_CMD());
         // Features
         this.getCommand("feed").setExecutor(new Feed_CMD());
         this.getCommand("jobs").setExecutor(new Job_CMD());
