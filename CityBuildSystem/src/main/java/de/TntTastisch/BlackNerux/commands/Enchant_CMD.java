@@ -1,5 +1,7 @@
 package de.TntTastisch.BlackNerux.commands;
 
+import com.google.gson.internal.$Gson$Preconditions;
+import de.TntTastisch.BlackNerux.api.ItemAPI;
 import de.TntTastisch.BlackNerux.systems.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -18,68 +20,35 @@ public class Enchant_CMD implements CommandExecutor {
             Player player = (Player) commandSender;
 
             if(player.hasPermission("citybuild.command.enchant")){
-                if(strings.length < 3){
-                    player.sendMessage(Data.prefix + "§7Benutze §8× §e/enchant <Spieler> <Enchantment> <Level>");
+                if(strings.length < 2){
+                    player.sendMessage(Data.prefix + "§7Benutze §8× §e/enchant <Enchantment> <Level>");
                     player.sendMessage(Data.prefix + "§7Hilfe §8×§6 http://wiki.mc-ess.net/wiki/Enchantments");
-                } else if(strings.length == 3) {
-                    Player target = Bukkit.getPlayer(strings[0]);
+                } else if(strings.length == 2) {
 
-                    if(target != null){
-                        if(target != player){
+                    if (player.getItemInHand().getType() != Material.AIR) {
 
-                            ItemStack is = player.getItemInHand();
+                        Enchantment enchantment = Enchantment.getByName(strings[0].toUpperCase());
+                        int level = 1;
+                        try {
+                            level = Integer.parseInt(strings[1]);
+                        } catch (NumberFormatException e) {
+                            player.sendMessage(Data.prefix + "§c" + strings[1] + " ist keine Zahl!");
+                        }
 
-                            if (is.getType() != Material.AIR) {
+                        try {
+                            ItemStack itemStack = player.getItemInHand();
+                            ItemMeta itemMeta = itemStack.getItemMeta();
+                            itemStack.addUnsafeEnchantment(enchantment, level);
+                            itemStack.setItemMeta(itemMeta);
 
-                                Enchantment enchantment = Enchantment.getByName(strings[1].toUpperCase());
-                                int level = 1;
-                                try {
-                                    level = Integer.parseInt(strings[2]);
-                                } catch (NumberFormatException e) {
-                                    player.sendMessage(Data.prefix + "§c" + strings[2] + " ist keine Zahl!");
-                                }
+                            player.sendMessage(Data.prefix + "§7Du hast das Item §6" + player.getItemInHand().getType()
+                                    + " §7mit dem Enchantment §6" + enchantment.getName() + " §7Level " + level + " §7verzaubtert.");
 
-                                try {
-                                    ItemMeta im = is.getItemMeta();
-                                    is.addUnsafeEnchantment(enchantment, level);
-                                    is.setItemMeta(im);
-                                    player.sendMessage(Data.prefix + "§7Du hast das Item §6" + is.getType() + " §7mit dem Enchantment §6" + enchantment.getName() + " §7Level " + level + " §7verzaubtert.");
-                                    target.setItemInHand(is);
-                                } catch (IllegalArgumentException e) {
-                                    player.sendMessage(Data.prefix + "§cDieses Enchantment existiert nicht!");
-                                }
-                            } else {
-                                player.sendMessage(Data.prefix + "§cDieser Spieler muss ein Item in der Hand haben!");
-                            }
-
-                        } else {
-                            ItemStack is = player.getItemInHand();
-
-                            if (is.getType() != Material.AIR) {
-
-                                Enchantment enchantment = Enchantment.getByName(strings[1].toUpperCase());
-                                int level = 1;
-                                try {
-                                    level = Integer.parseInt(strings[2]);
-                                } catch (NumberFormatException e) {
-                                    player.sendMessage(Data.prefix + "§c" + strings[2] + " ist keine Zahl!");
-                                }
-
-                                try {
-                                    ItemMeta im = is.getItemMeta();
-                                    is.addUnsafeEnchantment(enchantment, level);
-                                    is.setItemMeta(im);
-                                    player.sendMessage(Data.prefix + "§7Du hast das Item §6" + is.getType() + " §7mit dem Enchantment §6" + enchantment.getName() + " §7Level " + level + " §7verzaubtert.");
-                                    player.setItemInHand(is);
-                                } catch (IllegalArgumentException e) {
-                                    player.sendMessage(Data.prefix + "§cDieses Enchantment existiert nicht!");
-                                }
-                            } else {
-                                player.sendMessage(Data.prefix + "§cDu musst ein Item in der Hand halten!");
-                            }
+                        } catch (IllegalArgumentException e) {
+                            player.sendMessage(Data.prefix + "§cDieses Enchantment existiert nicht!");
                         }
                     } else {
-                        player.sendMessage(Data.prefix + "§cDieser Spieler ist Offline!");
+                        player.sendMessage(Data.prefix + "§cDieser Spieler muss ein Item in der Hand haben!");
                     }
                 }
             } else {
