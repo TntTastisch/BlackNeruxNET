@@ -8,6 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="15393ebf-6a0b-4e9b-8615-758532e44b62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/CityBuild-System.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/CityBuild-System.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Enchant_CMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/TntTastisch/BlackNerux/commands/Enchant_CMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iSystems/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iSystems/out/artifacts/iSystems/iSystems.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/out/artifacts/iSystems/iSystems.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iSystems/src/main/java/de/TntTastisch/BlackNeruxNetworks/iSystems.java" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/src/main/java/de/TntTastisch/BlackNeruxNetworks/iSystems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iSystems/target/classes/de/TntTastisch/BlackNeruxNetworks/iSystems.class" beforeDir="false" afterPath="$PROJECT_DIR$/../iSystems/target/classes/de/TntTastisch/BlackNeruxNetworks/iSystems.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowStructure.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../6767Army/LobbySystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

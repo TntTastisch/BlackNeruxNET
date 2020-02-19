@@ -168,15 +168,17 @@ public class iSystems extends JavaPlugin implements Listener {
             player.sendMessage(prefix + "§cDieser Befehl ist dem System nicht bekannt!");
         }
 
-        if(event.getMessage().equalsIgnoreCase("/stop")){
-            event.setCancelled(true);
+        if(player.hasPermission("system.command.stop")) {
+            if (event.getMessage().equalsIgnoreCase("/stop")) {
+                event.setCancelled(true);
 
-            for(Player all : Bukkit.getOnlinePlayers()){
-                all.kickPlayer("§7Der Server wird von §e" + getPlayerPrefix(player) + " §7neugestartet!");
+                for (Player all : Bukkit.getOnlinePlayers()) {
+                    all.kickPlayer("§7Der Server wird von §e" + getPlayerPrefix(player) + " §7neugestartet!");
+                }
+
+                Bukkit.shutdown();
+
             }
-
-            Bukkit.shutdown();
-
         }
     }
 }

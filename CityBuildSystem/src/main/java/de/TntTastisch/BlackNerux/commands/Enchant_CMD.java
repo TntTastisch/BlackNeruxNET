@@ -42,13 +42,13 @@ public class Enchant_CMD implements CommandExecutor {
                             itemStack.setItemMeta(itemMeta);
 
                             player.sendMessage(Data.prefix + "§7Du hast das Item §6" + player.getItemInHand().getType()
-                                    + " §7mit dem Enchantment §6" + enchantment.getName() + " §7Level " + level + " §7verzaubtert.");
+                                    + " §7mit dem Enchantment §c" + enchantment.getName() + "§8:§c" + level + " §7verzaubtert.");
 
                         } catch (IllegalArgumentException e) {
                             player.sendMessage(Data.prefix + "§cDieses Enchantment existiert nicht!");
                         }
                     } else {
-                        player.sendMessage(Data.prefix + "§cDieser Spieler muss ein Item in der Hand haben!");
+                        player.sendMessage(Data.prefix + "§cDu musst ein Item in die Hand nehmen!");
                     }
                 }
             } else {
